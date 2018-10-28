@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>A1</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+    
+	<body style = "background-color: #999999" >
+        
+        <div class="header-container">
+            <div class="header-item">
+                <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                    <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"> </a> </div>
+            <div> </div>
+            <div class="navpar-container" style="padding-top: 3px">
+                  <div><a href="Home.html" class="current-head-href head-href"> Log out </a></div>
+                  <div><a href="Students.html" class="head-href"> Students </a></div>
+	        </div>
+		</div> 
+       
+            <h1 style = "text-align: center;">Users DataBase</h1>
+		
+		
+		             <div class="grid-container">
+	
+          <div class="styled-select blue semi-square">
+              
+    <select name="Genre">
+  <option value="Genre">Genre</option>
+
+        </select>               </div>
+        
+           <div class="styled-select blue semi-square">
+    <select name="Sort BY"  >
+  <option value="No">Sort by</option>
+  <option value="Name">Name</option>
+  <option value="ID">ID</option>
+  <option value="Department">Department</option>
+  <option value="Academic position">Academic Position</option>
+  <option value="Academic Specialization">Academic Specialization</option>
+  <option value="Graduate Date">Graduate Date</option>
+        </select>      
+ </div>
+   <form role="search">
+    <div class="search-control">
+        <input type="search" id="name-search" name="q"
+               placeholder="Search a name..."
+               aria-label="Search through names" style="margin-top: 0px">
+        <button>Search</button>
+    </div>
+</form>
+
+    
+                     
+		</div> 
+     <div class = "table-container">
+            <div>     
+    
+        <table style="width:100%" class="TableListJS" id="entries" >
+           <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Email Address</th>
+            <th>Acadimic Position</th>
+            <th>Department</th>
+            <th>Acadimic spcialization</th>
+            <th>Graduate Date</th>
+            <th>Load</th>
+            <th>Extra Courses</th>
+        </tr>
+       
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+       
+      
+       
+    </table>        </div>      
+        <div>
+<div>
+ <button type="button" id="ADD_USER"  class="add">Add User</button> </div>
+		
+
+<div>
+ 
+<button type="button" class="delete">Delete</button> </div>  </div>
+
+
+ </div>
+
+        
+       
+    </body>
