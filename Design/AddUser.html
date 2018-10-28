@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Add User</title>
+		<link rel="stylesheet" href="css/AddUser.css">
+	</head>
+    
+	<body style = "background-color: #999999" >
+        
+        <div class="header-container">
+            <div class="header-item">
+                <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                    <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"> </a> </div>
+            <div> </div>
+            <div class="navpar-container" style="padding-top: 3px">
+                  <div><a href="Home.html" class="head-href"> Log out </a></div>
+                  <div><a href="Admin.html" class="head-href"> Home </a></div>
+	        </div>
+		</div> 
+        <form>
+            <h1 class="header-text">Please, Fill the following to create a new user.</h1>
+            <div class="container">
+                    <label for="username"><b>Username</b></label><br>
+                    <input type="text" placeholder="Enter username" id ="username" name="username" required><br> 
+                
+                    <label for="email"><b>E-mail Address</b></label><br>
+                    <input type="text" id ="email" placeholder="Enter user's e-mail" required><br>
+                
+                    <label for="password"><b>Password</b></label><br>
+                    <input type="password" id="password" required><br><br>
+                
+                <label for="graduation"><b>Graduation Date</b></label><br>
+                <input type="date" id="graduation" class="grad-date"><br>
+                
+            <br><br>
+            <label for="academic"><b>Academic Position</b></label><br>
+                <select class="academic-position">
+                        <option value="demonstrator">Demonstrator</option>
+                        <option value="assistantLecturer">Assistant Lecturer</option>
+                        <option value="Lecturer">Lecturer</option>
+                        <option value="AssistantProfessor">Assistant Professor</option>
+                        <option value="Professor">Professor</option>
+                </select><br>
+                
+                <button type="save" class="registerbtn"><b><font size="5">Save</font></b></button>
+                
+            </div>
+        </form>
+         
+        
+        
+    </body>

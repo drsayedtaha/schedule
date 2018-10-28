@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Add Times</title>
+		<link rel="stylesheet" href="css/AddCourse.css">
+	</head>
+    
+	<body style = "background-color: #999999" >
+        
+        <div class="header-container">
+            <div class="header-item">
+                <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                    <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"> </a> </div>
+            <div> </div>
+            <div class="navpar-container" style="padding-top: 3px">
+                  <div><a href="Home.html" class="head-href"> Log out </a></div>
+                  <div><a href="Admin.html" class="head-href"> Home </a></div>
+	        </div>
+		</div> 
+        
+        
+        <form>
+            <h1 class="header-text">Please, Fill the following to add times.</h1>
+            <div class="container">
+                    
+                <!-- department combox -->
+                    <label for="department"><b>Department</b></label><br>
+                    <select class="department">
+                        <option value="civil">Civil</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="architecture">Architecture</option>
+                        <option value="industrial">Industrial</option>
+                        <option value="mechanical">Mechanical</option>
+                        <option value="all">Alll</option>
+                </select><br>
+                
+                <!-- grade combox -->
+                <label for="grade"><b>Grade</b></label><br>
+                    <select class="grade">
+                        <option value="prep">Preparatory</option>
+                        <option value="civil">First year</option>
+                        <option value="electrical">Secend Year</option>
+                        <option value="architecture">Third Year</option>
+                        <option value="industrial">Fourth Year</option>
+                        <option value="industrial">All</option>
+                </select><br>
+                
+                
+                
+                <label for="weeklyhours"><b>Days</b></label><br> <br>
+                
+                <label class="check-box-container">Saturday
+                    <input type="checkbox"> <span class="checkmark"></span> </label>
+                <label class="check-box-container">Sunday
+                    <input type="checkbox"> <span class="checkmark"></span> </label>
+                <label class="check-box-container">Monday
+                    <input type="checkbox"> <span class="checkmark"></span> </label>
+                <label class="check-box-container">Tuesday
+                    <input type="checkbox"> <span class="checkmark"></span> </label>
+                <label class="check-box-container">Wednesday
+                    <input type="checkbox"> <span class="checkmark"></span> </label>
+                <label class="check-box-container">Thursday
+                    <input type="checkbox"> <span class="checkmark"></span> </label>
+                <label class="check-box-container">Friday
+                    <input type="checkbox"> <span class="checkmark"></span> </label> <br>
+                
+                <label for="weeklyhours"><b>Times</b></label><br> <br>
+                
+                
+                <div class="add-times-container">
+                    
+                    <label class="check-box-container">Time 1:
+                        <input type="checkbox"> <span class="checkmark"></span> </label>
+                    <div>From </div>
+                    <input type="time" name="appt-time" value="08:50" style="height: 30px">
+                    <div> </div>                   
+                    <div>To </div>
+                    <input type="time" name="appt-time" value="10:20" style="height: 30px">
+                    <div><br><br></div>
+                    <label class="check-box-container">Time 2:
+                        <input type="checkbox"> <span class="checkmark"></span> </label>
+                    <div>From </div>
+                    <input type="time" name="appt-time" value="10:30" style="height: 30px">
+                    <div> </div>                   
+                    <div>To </div>
+                    <input type="time" name="appt-time" value="12:00" style="height: 30px">
+                    <div><br><br></div>
+                    <label class="check-box-container">Time 3:
+                        <input type="checkbox"> <span class="checkmark"></span> </label>
+                    <div>From </div>
+                    <input type="time" name="appt-time" value="12:20" style="height: 30px">
+                    <div> </div>                   
+                    <div>To </div>
+                    <input type="time" name="appt-time" value="13:50" style="height: 30px">
+                    <div><br><br></div>
+                    <label class="check-box-container">Time 4:
+                        <input type="checkbox"> <span class="checkmark" style="height: 30px"></span> </label>
+                    <div>From </div>
+                    <input type="time" name="appt-time" value="14:00" style="height: 30px">
+                    <div> </div>                   
+                    <div>To </div>
+                    <input type="time" name="appt-time" value="15:30" style="height: 30px">
+                    <div><br><br></div>
+                    <label class="check-box-container">Time 5:
+                        <input type="checkbox"> <span class="checkmark"></span> </label>
+                    <div>From </div>
+                    <input type="time" name="appt-time" value="15:50" style="height: 30px">
+                    <div> </div>                   
+                    <div>To </div>
+                    <input type="time" name="appt-time" value="17:20" style="height: 30px">
+                    <div><br><br></div>
+                    <label class="check-box-container">Time 6:
+                        <input type="checkbox"> <span class="checkmark"></span> </label>
+                    <div>From </div>
+                    <input type="time" name="appt-time" value="17:30" style="height: 30px">
+                    <div> </div>                   
+                    <div>To </div>
+                    <input type="time" name="appt-time" value="19:00" style="height: 30px">
+                                        
+                    
+	            </div>
+		</div>
+                
+                
+            <br>
+            
+                
+                <button type="save" class="registerbtn"><b><font size="5">Save</font></b></button>
+                
+        </form>
+        
+    </body>

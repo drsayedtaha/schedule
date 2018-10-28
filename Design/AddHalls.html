@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Add Halls</title>
+		<link rel="stylesheet" href="css/AddHalls.css">
+	</head>
+    
+	<body style = "background-color: #999999" >
+        
+        <div class="header-container">
+            <div class="header-item">
+                <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                    <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"> </a> </div>
+            <div> </div>
+            <div class="navpar-container" style="padding-top: 3px">
+                  <div><a href="Home.html" class="head-href"> Log out </a></div>
+                  <div><a href="Admin.html" class="head-href"> Home </a></div>
+	        </div>
+		</div> 
+        
+        
+        <form>
+            <h1 class="header-text">Please, Fill the following to add lecture halls and section rooms.</h1>
+            <div class="container">
+                   
+                
+                <!-- Genre combox -->
+                    <label for="genre"><b>Genre</b></label><br>
+                    <select class="genre">
+                        <option value="mathematics">Lecture Hall</option>
+                        <option value="civil">Section Room</option>
+
+                </select><br>
+                
+                <!-- location combox -->
+                <label for="location"><b>Location</b></label><br>
+                <input type="text" id="location" class="location" placeholder="Enter location"><br>
+                
+                <!-- name text  -->
+                
+                <label for="name"><b>Name</b></label><br>
+                <input type="text" id="name" class="hall-name" placeholder="Enter name "><br>
+                
+                
+                <label for="capacity"><b>Maximum number of students </b></label><br>
+                <input type="text" id="capacity" class="capacity" placeholder="Enter maximum number of students"><br>
+                
+                
+            <br><br>
+            
+                
+                <button type="save" class="registerbtn"><b><font size="5">Save</font></b></button>
+                
+            </div>
+        </form>
+        
+    </body>

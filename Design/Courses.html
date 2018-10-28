@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Courses</title>
+		<link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" href="css/images/logo.png" />
+	</head>
+    
+	<body style = "background-color: #999999" >
+        
+        <div class="header-container">
+            <div class="header-item">
+                <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                    <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"> </a> </div>
+            <div> </div>
+            <div class="navpar-container" style="padding-top: 3px">
+                  <div><a href="Home.html" class="head-href"> Log out </a></div>
+                  <div><a href="Admin.html" class="head-href"> Home </a></div>
+	        </div>
+		</div> 
+       
+            <h1 style = "text-align: center;">Subjects DataBase</h1>
+		
+		
+		             <div class="grid-container">
+	
+          <div class="styled-select blue semi-square">
+              
+    <select name="Grade">
+  <option value="Grade">Grade</option>
+        </select>   
+ 
+           </div>
+
+         <div class="styled-select blue semi-square">
+        <select name="Department">
+        <option value="Department">Department</option>
+
+        </select>
+        </div>
+           
+<div class="styled-select blue semi-square">
+    <select name="Sort BY"  >
+  <option value="No">Sort by</option>
+  <option value="Title">Title</option>
+  <option value="Code">Code</option>
+  <option value="Grade">Grade</option>
+  <option value="Weekly hours">Weekly hours</option>
+  <option value="weekly Extra hours">weekly Extra hours</option>
+  <option value="Number of instructors">Number of instructors</option>
+        </select>      
+ </div>
+   <form role="search">
+    <div class="search-control">
+        <input type="search" id="name-search" name="q"
+               placeholder="Search a name..."
+               aria-label="Search through names" style="margin-top: 0px">
+        <button>Search</button>
+    </div>
+</form>
+
+    
+                    
+		</div> 
+     <div class = "table-container">
+            <div>     
+    
+        <table style="width:100%" class="TableListJS" id="entries" >
+           <tr>
+            <th>No</th>
+            <th>Title</th>
+            <th>Code</th>
+            <th>Grade</th>
+            <th>Department</th>
+            <th>Weekly hours lec.</th>
+            <th>weekly extra hours</th>
+            <th>Number of instructors</th>
+            
+        </tr>
+       
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          
+        </tr>
+       
+      
+       
+    </table>     </div>      
+        <div>
+<div>
+ <button type="button" id="ADD_SUBJECT"  class="add">Add Subject</button> </div>
+		
+
+<div>
+ 
+<button type="button" class="delete">Delete</button> </div>  </div>
+
+
+ </div>
+
+      
+        
+       
+</body>

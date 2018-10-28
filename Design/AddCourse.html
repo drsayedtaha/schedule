@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Add Course</title>
+		<link rel="stylesheet" href="css/AddCourse.css">
+	</head>
+    
+	<body style = "background-color: #999999" >
+        
+        <div class="header-container">
+            <div class="header-item">
+                <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                    <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"> </a> </div>
+            <div> </div>
+            <div class="navpar-container" style="padding-top: 3px">
+                  <div><a href="Home.html" class="head-href"> Log out </a></div>
+                  <div><a href="Admin.html" class="head-href"> Home </a></div>
+	        </div>
+		</div> 
+        
+        
+        <form>
+            <h1 class="header-text">Please, Fill the following to add course.</h1>
+            <div class="container">
+                    <label for="title"><b>Title</b></label><br>
+                    <input type="text" placeholder="Enter course's title" id ="title" name="title" required><br> 
+                
+                    <label for="code"><b>Course's Code</b></label><br>
+                    <input type="text" id ="code" placeholder="Enter course's code" required><br>
+                
+                <!-- department combox -->
+                    <label for="department"><b>Department</b></label><br>
+                    <select class="department">
+                        <option value="mathematics">Mathematics and Physics</option>
+                        <option value="civil">Civil</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="architecture">Architecture</option>
+                        <option value="industrial">Industrial</option>
+                        <option value="mechanical">Mechanical</option>
+                </select><br>
+                
+                <!-- grade combox -->
+                <label for="grade"><b>Grade</b></label><br>
+                    <select class="grade">
+                        <option value="prep">Preparatory</option>
+                        <option value="civil">First year</option>
+                        <option value="electrical">Secend Year</option>
+                        <option value="architecture">Third Year</option>
+                        <option value="industrial">Fourth Year</option>
+                </select><br>
+                
+                <!-- hours text boxes -->
+                
+                <label for="weeklyhours"><b>Weekly lecture's hours</b></label><br>
+                <input type="text" id="lecturehours" class="lecture-hours" placeholder="Enter number of hours"><br>
+                
+                
+                <label for="weeklyhours"><b>Weekly section/lab hours</b></label><br>
+                <input type="text" id="sectionhours" class="section-hours" placeholder="Enter number of hours"><br>
+                
+                <label for="instructor.numbers"><b>Number of instructors</b></label><br>
+                <input type="text" id="instructorNumbers" class="instructor-numbers" placeholder="Enter number of instructors"><br>
+                
+                
+            <br><br>
+            
+                
+                <button type="save" class="registerbtn"><b><font size="5">Save</font></b></button>
+                
+            </div>
+        </form>
+        
+    </body>
