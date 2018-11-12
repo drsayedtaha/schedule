@@ -7,10 +7,11 @@ import DTO.Period;
 
 public abstract class AdminDAOImpl {
    
+   
     public abstract boolean insertInstructor(Instructor instructor);
-    public abstract boolean  insertCourse(Course course);
-    public abstract boolean   insertHall(Hall hall);
-    public abstract boolean  insertPeriod(Period period);
+    public abstract boolean insertCourse(Course course);
+    public abstract boolean insertHall(Hall hall);
+    public abstract boolean insertPeriod(Period period);
 
     public abstract boolean  updateInstructor(Instructor instructor);
     public abstract boolean  updateCourse(Course course);
