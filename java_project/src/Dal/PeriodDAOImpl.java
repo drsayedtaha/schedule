@@ -2,13 +2,10 @@ package Dal;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import DTO.Division;
 import DTO.Period;
 import java.sql.*;
 public class PeriodDAOImpl implements PeriodDAO {
-	
-	
+
 	@Override
 	public List<Period> getPeriods() {
 		List<Period> result = new ArrayList<Period>();
@@ -115,6 +112,9 @@ public class PeriodDAOImpl implements PeriodDAO {
 		}
 		return false;
 	}
+	
+	
+	
 
 
 	

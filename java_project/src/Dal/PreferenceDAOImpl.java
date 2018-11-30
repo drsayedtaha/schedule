@@ -1,16 +1,22 @@
 package Dal;
-
 import java.util.List;
+import java.sql.*;
 
 import DTO.Course;
 import DTO.Instructor;
 import DTO.Preference;
-
+/**
+ * 
+ * @author Ahmed Fayez
+ * Launched on 1st of December 2018
+ */
 public class PreferenceDAOImpl implements PreferenceDAO {
 
+	Connection conn = DBUtils.getConnection();
+	
 	@Override
 	public List<Preference> getPreferences(Instructor instructor) {
-		// TODO Auto-generated method stub
+		// TODO 
 		return null;
 	}
 

@@ -5,10 +5,10 @@ import java.util.List;
 
 public interface PeriodDAO {
     public List<Period> getPeriods();
-    public List<Period> getDivisions();
+   
 
-    public boolean exists(Division division);
-    public boolean insert(Division division);
-    public boolean update(Division division);
-    public boolean delete(Division division);
+    public boolean exists(Period period);
+    public boolean insert(Period period);
+    public boolean update(Period period);
+    public boolean delete(Period period);
 }
