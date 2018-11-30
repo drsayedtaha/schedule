@@ -1,13 +1,12 @@
-package Dal;
+package BAL;
 
 import java.util.List;
 
-import BAL.InstructorBAO;
 import DTO.Course;
 import DTO.Period;
 import DTO.Preference;
 
-public class InstructorDAOImpl implements InstructorBAO {
+public class InstructorBAOImpl implements InstructorBAO {
 
 	@Override
 	public List<Course> getCourses() {

@@ -1,12 +1,12 @@
 package DTO;
 
-public class Hall {
+public class Hall  {
     
     private Integer iD;
     private String location;
     private String name;
     private Integer capacity;
-    private String department; //look-up table?
+    private Department department; //look-up table?
 
 
     public void setID(Integer iD) {
@@ -41,11 +41,11 @@ public class Hall {
         return capacity;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public Department getDepartment() {
+        return department;
     }
 
-    public String getDepartment() {
-        return department;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

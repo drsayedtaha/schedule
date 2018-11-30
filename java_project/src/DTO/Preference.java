@@ -1,6 +1,6 @@
 package DTO;
 
-public class Preference {
+public class Preference  {
     
     private Instructor instructor;
     private Course course;

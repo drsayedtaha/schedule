@@ -1,33 +1,42 @@
 package DTO;
 
+import java.util.ArrayList;
+
 public class Course {
    
-   private Instructor[] instructors;
-   private Period[] periods;
+   private ArrayList<Instructor> instructors;
+   private ArrayList<Period> periods;
    
    private Integer iD;
    private String name;
    private String code;
-   private String grade; // String or DTO class , dp look-up table?
-   private String department; 
+   private Grade grade; // String or DTO class , dp look-up table?
+   private Department department;
    private Integer weeklyLectureHours;
    private Integer weeklySectionHours;
 
-
-    public void setInstructors(Instructor[] instructors) {
-        this.instructors = instructors;
-    }
-
-    public Instructor[] getInstructors() {
+    public ArrayList<Instructor> getInstructors() {
         return instructors;
     }
 
-    public void setPeriods(Period[] periods) {
+    public void setInstructors(ArrayList<Instructor> instructors) {
+        this.instructors = instructors;
+    }
+
+    public ArrayList<Period> getPeriods() {
+        return periods;
+    }
+
+    public void setPeriods(ArrayList<Period> periods) {
         this.periods = periods;
     }
 
-    public Period[] getPeriods() {
-        return periods;
+    public Integer getiD() {
+        return iD;
+    }
+
+    public void setiD(Integer iD) {
+        this.iD = iD;
     }
 
     public void setID(Integer iD) {
@@ -54,13 +63,6 @@ public class Course {
         return code;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
 
     public void setWeeklyLectureHours(Integer weeklyLectureHours) {
         this.weeklyLectureHours = weeklyLectureHours;
@@ -78,12 +80,19 @@ public class Course {
         return weeklySectionHours;
     }
 
-
-    public void setDepartment(String department) {
-        this.department = department;
+    public Grade getGrade() {
+        return grade;
     }
 
-    public String getDepartment() {
+    public void setGrade(Grade grade) {
+        this.grade = grade;
+    }
+
+    public Department getDepartment() {
         return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

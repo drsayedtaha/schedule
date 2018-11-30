@@ -1,6 +1,6 @@
 package DTO;
 
-public class Period {
+public class Period  {
     
     private Hall hall;
     

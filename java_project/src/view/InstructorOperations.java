@@ -1,5 +1,6 @@
-package view;
-import DTO.*;
+package src.view;
+
+import src.DTO.*;
 
 
 public abstract class InstructorOperations {
@@ -10,7 +11,7 @@ public abstract class InstructorOperations {
     
    public abstract void setPreference(Instructor instructor,Course course,Period period);
 
-   public abstract Preference getPreference();
+   public abstract Preference getPreferenceObj();
    
    
 }

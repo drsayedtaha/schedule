@@ -2,45 +2,44 @@ package Dal;
 
 import java.util.List;
 
-import BAL.InstructorBAO;
 import DTO.Course;
-import DTO.Period;
-import DTO.Preference;
+import DTO.Department;
+import DTO.Hall;
 
-public class InstructorDAOImpl implements InstructorBAO {
+public class HallDAOImpl implements HallDAO {
 
 	@Override
-	public List<Course> getCourses() {
+	public List<Hall> getAllHalls() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Period> getPeriods() {
+	public List<Course> getHalls(Department department) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Preference> getPreferences() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean savePreference(Preference preference) {
+	public boolean insert(Hall hall) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deletePreference(Preference preference) {
+	public boolean exists(Hall hall) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updatePreference(Preference preference) {
+	public boolean update(Hall hall) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delete(Hall hall) {
 		// TODO Auto-generated method stub
 		return false;
 	}

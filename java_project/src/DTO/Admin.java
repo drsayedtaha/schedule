@@ -1,6 +1,6 @@
 package DTO;
 
-public class Admin {
+public class Admin  {
     private int iD;
     private String email;
     private String password;

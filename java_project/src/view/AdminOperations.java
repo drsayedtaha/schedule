@@ -1,9 +1,9 @@
-package view;
+package src.view;
 
-import DTO.*;
+import src.DTO.*;
 
 
-public abstract class AdminOperations {
+public abstract class AdminOperations  {
     
     
     
@@ -13,9 +13,9 @@ public abstract class AdminOperations {
     public abstract void setHall();
     public abstract void setPeriod();
     
-    public abstract Instructor getInstructor();
-    public abstract Course getCourse();
-    public abstract Hall getHall();
-    public abstract Period getPeriod();
+    public abstract Instructor getInstructorObj();
+    public abstract Course getCourseObj();
+    public abstract Hall getHallObj();
+    public abstract Period getPeriodObj();
     
 }

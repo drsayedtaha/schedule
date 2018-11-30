@@ -1,38 +1,33 @@
 package DTO;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Instructor {
+
+public class Instructor  {
     
-    private Course[] courses;
+    private ArrayList<Course> courses;
     
-    private Integer iD;
+    private Integer id;
     private String fullName;
     private  String email;
     private String password;
     private String mobileNumber;
     private Date dateOfEmployment;
-    private String academicDegree; // db dependent
-    private String department; // academic degree?
-    private  List availableDays[];
+    private AcademicDegree academicDegree; // db dependent
+    private Department department; // academic degree?
+    private  List<String> availableDays[];
     // private Integer maxLoad;
 
 
-    public void setCourse(Course[] course) {
-        this.courses = course;
-    }
-
-    public Course[] getCourse() {
+    public ArrayList<Course> getCourses() {
         return courses;
     }
 
-    public void setID(Integer iD) {
-        this.iD = iD;
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
     }
 
-    public Integer getID() {
-        return iD;
-    }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
@@ -74,29 +69,40 @@ public class Instructor {
         return dateOfEmployment;
     }
 
-    public void setAcademicDegree(String academicDegree) {
-        this.academicDegree = academicDegree;
+
+    public Integer getId() {
+        return id;
     }
 
-    public String getAcademicDegree() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public AcademicDegree getAcademicDegree() {
         return academicDegree;
     }
 
-    
-
-    public void setAvailableDays(List[] availableDays) {
-        this.availableDays = availableDays;
+    public void setAcademicDegree(AcademicDegree academicDegree) {
+        this.academicDegree = academicDegree;
     }
 
-    public List[] getAvailableDays() {
-        return availableDays;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(Department department) {
         this.department = department;
     }
 
-    public String getDepartment() {
-        return department;
-    }
+	public List<String>[] getAvailableDays() {
+		return availableDays;
+	}
+
+	public void setAvailableDays(List<String>[] availableDays) {
+		this.availableDays = availableDays;
+	}
+
+    
+
+
 }

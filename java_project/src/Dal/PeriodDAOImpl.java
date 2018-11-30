@@ -2,18 +2,10 @@ package Dal;
 
 import java.util.List;
 
-import BAL.InstructorBAO;
-import DTO.Course;
+import DTO.Division;
 import DTO.Period;
-import DTO.Preference;
 
-public class InstructorDAOImpl implements InstructorBAO {
-
-	@Override
-	public List<Course> getCourses() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public class PeriodDAOImpl implements PeriodDAO {
 
 	@Override
 	public List<Period> getPeriods() {
@@ -22,25 +14,31 @@ public class InstructorDAOImpl implements InstructorBAO {
 	}
 
 	@Override
-	public List<Preference> getPreferences() {
+	public List<Period> getDivisions() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean savePreference(Preference preference) {
+	public boolean exists(Division division) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deletePreference(Preference preference) {
+	public boolean insert(Division division) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updatePreference(Preference preference) {
+	public boolean update(Division division) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delete(Division division) {
 		// TODO Auto-generated method stub
 		return false;
 	}

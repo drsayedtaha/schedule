@@ -1,5 +1,5 @@
-package view;
-import DTO.*;
+package src.view;
+import src.DTO.*;
 import java.util.List;
 
 public interface InstructorView {
