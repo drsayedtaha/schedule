@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org"
+            targetNamespace="http://www.example.org" elementFormDefault="qualified">
+  <xsd:element name="References">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Reference">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="Factory">
+                <xsd:complexType>
+                  <xsd:attribute name="className" type="xsd:string"/>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="RefAddresses">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="StringRefAddr" maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="Contents" type="xsd:string"/>
+                        </xsd:sequence>
+                        <xsd:attribute name="addrType" type="xsd:string"/>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="name" type="xsd:string"/>
+            <xsd:attribute name="className" type="xsd:string"/>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
