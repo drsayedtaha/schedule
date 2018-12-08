@@ -13,7 +13,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import java.util.ArrayList;
-/**implemented by abdallah saied 4-12-2018 2:00 am...**/
+/**implemented by abdallah saied 4-12-2018 2:00 am...
+ * last updated on 8/12/2018 by Ahmed Fayez (Added enums instead of look-up tables)
+ * 
+ * **/
 
 public class CourseDAOImpl implements CourseDAO {
     /** getAllCourses() method returns a list which contains all the courses data..*/

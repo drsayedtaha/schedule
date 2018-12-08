@@ -10,7 +10,7 @@ import DTO.Division;
 /**
  * 
  * @author Saleh mahmoud
- *
+ * last updated on 8/12/2018 by Ahmed Fayez (Added enums instead of look-up tables)
  */
 public class DivisionDAOImpl implements DivisionDAO {
 

@@ -17,7 +17,7 @@ public class Instructor  {
     private AcademicDegree academicDegree; // db dependent
     private Department department; // academic degree?
     private  List<String> availableDays[];
-    private Role role = Role.Instructor;
+    
     
 
 	public String getAcademicField() {
