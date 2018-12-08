@@ -3,9 +3,9 @@ package Dal;
 import java.util.List;
 
 import DTO.Course;
-import DTO.Department;
 import DTO.Hall;
 import DTO.Period;
+import enums.Department;
 import utils.DBUtils;
 
 import java.sql.Connection;
@@ -171,5 +171,6 @@ public class HallDAOImpl implements HallDAO {
 			}
 			return false;
 	}
+	
 
 }

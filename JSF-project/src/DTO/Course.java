@@ -1,7 +1,7 @@
 package DTO;
 
 import java.util.ArrayList;
-
+import enums.*;
 public class Course {
    
    private ArrayList<Instructor> instructors;
@@ -12,6 +12,7 @@ public class Course {
    private String code;
    private Grade grade; // String or DTO class , dp look-up table?
    private Department department;
+   private Division division;
    private Integer weeklyLectureHours;
    private Integer weeklySectionHours;
 
@@ -80,19 +81,31 @@ public class Course {
         return weeklySectionHours;
     }
 
-    public Grade getGrade() {
-        return grade;
-    }
+	public Grade getGrade() {
+		return grade;
+	}
 
-    public void setGrade(Grade grade) {
-        this.grade = grade;
-    }
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
 
-    public Department getDepartment() {
-        return department;
-    }
+	public Department getDepartment() {
+		return department;
+	}
 
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public Division getDivision() {
+		return division;
+	}
+
+	public void setDivision(Division division) {
+		this.division = division;
+	}
+	
+	
+
+    
 }

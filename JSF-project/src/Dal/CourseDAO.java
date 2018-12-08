@@ -1,13 +1,12 @@
 package 	Dal;
-
 import DTO.Course;
-import DTO.Department;
+import enums.Department;
 import DTO.Division;
 
 
 import java.util.List;
 
-/*last edited by abdallah saied 2-12-2018 11:25pm
+/**last edited by abdallah saied 2-12-2018 11:25pm
  *
  */
 public interface CourseDAO {
@@ -17,9 +16,8 @@ public interface CourseDAO {
   public  Course getCourse(String code);
 
   public  List<Course> getCourses(Department department);
- 
-  public  List<Course> getCourses(Division division);
 
+  public  List<Course> getCourses(Division division);
 
   public  boolean insert(Course course);
   public  boolean exists(Course course);

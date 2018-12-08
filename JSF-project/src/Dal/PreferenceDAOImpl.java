@@ -14,6 +14,7 @@ import utils.DBUtils;
  * @author Ahmed Hassan
  * created on Dec2, 2018
  * last edited on Dec 3, 2018
+ * last updated on 8/12/2018 by Ahmed Fayez (Added enums instead of look-up tables)
  */
 
 
@@ -39,7 +40,7 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 			ResultSet result = pstatement.executeQuery();
 		while(result.next()) {
 			String courseID = result.getString("COURSE_ID");
-			String periodID = result.getString("PERIOD_ID");
+			Integer periodID = result.getInt("PERIOD_ID");
 			Integer rank = result.getInt("RANK");
 			course = dAOFactory.createCourseDAO().getCourse(courseID);
 			period = dAOFactory.createPeriodDAO().getPeriod(periodID);
@@ -79,7 +80,7 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 			ResultSet result = pstatement.executeQuery();
 		while(result.next()) {
 			String instructorID = result.getString("INSTRUCTOR_ID");
-			String periodID = result.getString("PERIOD_ID");
+			Integer periodID = result.getInt("PERIOD_ID");
 			Integer rank = result.getInt("RANK");
 			instructor = dAOFactory.createInstructorDAO().getInstructor(instructorID);
 			period = dAOFactory.createPeriodDAO().getPeriod(periodID);

@@ -2,7 +2,7 @@ package 	Dal;
 import DTO.*;
 
 import java.util.List;
-
+import enums.Department;
 public interface HallDAO {
 
     public abstract List<Hall> getAllHalls();

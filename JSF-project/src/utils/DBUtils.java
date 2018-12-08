@@ -3,8 +3,8 @@ import java.sql.*;
 /**
  * 
  * @author Ahmed Fayez
- * Launched on 30th, November 2018
- * 
+ * Created on 30th, November 2018
+ * Last updated on 8/12/2018
  */
 public class DBUtils {
 	/**
@@ -17,8 +17,8 @@ public class DBUtils {
 		try
 		{
 		Class.forName("oracle.jdbc.Driver.OracleDriver");
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		conn = DriverManager.getConnection(url, "SCHEDULE", "Pass");
+		String url = "jdbc:oracle:thin:@//localhost:1521/xe";
+		conn = DriverManager.getConnection(url, "dbusername", "oracle");
 		}
 		catch (SQLException e) {
 			System.out.println("SQL exception at DB connection");
@@ -27,6 +27,10 @@ public class DBUtils {
 		}
 		catch (ClassNotFoundException e) {
 			System.out.println("Class not found exception");
+			e.printStackTrace();
+		}
+		
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 		

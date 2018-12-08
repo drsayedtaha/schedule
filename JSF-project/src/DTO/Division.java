@@ -1,5 +1,5 @@
 package DTO;
-
+import enums.*;
 public class Division {
 
     private Department department;

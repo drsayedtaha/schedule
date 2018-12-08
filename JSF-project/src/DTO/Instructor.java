@@ -2,7 +2,7 @@ package DTO;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import enums.*;
 
 public class Instructor  {
     
@@ -13,33 +13,28 @@ public class Instructor  {
     private  String email;
     private String password;
     private String academicField;
-    public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	private String role;
-
-    
-    public String getAcademicField() {
-		return academicField;
-	}
-
-	public void setAcademicField(String academicField) {
-		this.academicField = academicField;
-	}
-
-	private Date dateOfEmployment;
+    private Date dateOfEmployment;
     private AcademicDegree academicDegree; // db dependent
     private Department department; // academic degree?
     private  List<String> availableDays[];
-    // private Integer maxLoad;
+    private Role role = Role.Instructor;
+    
+
+	public String getAcademicField() {
+		return academicField;
+	}
 
 
-    public ArrayList<Course> getCourses() {
+    public void setAcademicField(String academicField) {
+		this.academicField = academicField;
+	}
+
+
+
+
+
+
+	public ArrayList<Course> getCourses() {
         return courses;
     }
 
@@ -103,17 +98,36 @@ public class Instructor  {
         return department;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
+
+
+
+
 
 	public List<String>[] getAvailableDays() {
 		return availableDays;
 	}
 
+
+
+
+
+
 	public void setAvailableDays(List<String>[] availableDays) {
 		this.availableDays = availableDays;
 	}
+
+
+
+
+
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+  
+
+	
 
 
     

@@ -2,7 +2,7 @@ package 	Dal;
 import DTO.*;
 
 import java.util.List;
-
+import enums.*;
 public interface InstructorDAO {
 
 

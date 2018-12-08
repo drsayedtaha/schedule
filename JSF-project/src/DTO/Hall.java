@@ -1,5 +1,5 @@
 package DTO;
-
+import enums.Department;
 public class Hall  {
     
     private Integer iD;
@@ -9,7 +9,15 @@ public class Hall  {
     private Department department; //look-up table?
 
 
-    public void setID(Integer iD) {
+    public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public void setID(Integer iD) {
         this.iD = iD;
     }
 
@@ -41,11 +49,5 @@ public class Hall  {
         return capacity;
     }
 
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
+   
 }

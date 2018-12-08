@@ -1,9 +1,12 @@
 package DTO;
 
+import enums.Role;
+
 public class Admin  {
     private int iD;
     private String email;
     private String password;
+    private Role role = Role.Admin;
 
 
     public void setID(int iD) {

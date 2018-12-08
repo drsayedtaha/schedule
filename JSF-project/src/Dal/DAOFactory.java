@@ -1,9 +1,6 @@
 package Dal;
-
-import BAL.LoginDAOImpl;
-
 /**
- * made by abdallah saied 2-12-2018 11:30 pm
+ made by abdallah saied 2-12-2018 11:30 pm
  * this class contains factory for all Dao's
  */
 public class DAOFactory {
@@ -29,5 +26,6 @@ public class DAOFactory {
     public PreferenceDAO createPreferenceDAO(){
           return new PreferenceDAOImpl();
     }
+    
     
 }

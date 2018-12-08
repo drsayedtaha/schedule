@@ -15,7 +15,6 @@ import Dal.DAOFactory;
 
 public class AdminBAOImpl implements AdminBAO {
 	DAOFactory dAOFactory = new DAOFactory();
-	
 	/**
 	 * The following method "saveInstructor()" saves instructor data to database 
 	 * it takes on parameter (Instructor object)

@@ -4,6 +4,7 @@ public class Preference  {
     
     private Instructor instructor;
     private Course course;
+    private Period period;
     private Integer rank;
 
 
@@ -30,4 +31,15 @@ public class Preference  {
     public Integer getRank() {
         return rank;
     }
+
+	public Period getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(Period period) {
+		this.period = period;
+	}
+    
+    
+    
 }
