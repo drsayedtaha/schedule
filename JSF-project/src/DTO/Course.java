@@ -15,8 +15,18 @@ public class Course {
    private Division division;
    private Integer weeklyLectureHours;
    private Integer weeklySectionHours;
+   private String term;
 
-    public ArrayList<Instructor> getInstructors() {
+   
+    public String getTerm() {
+	return term;
+}
+
+public void setTerm(String term) {
+	this.term = term;
+}
+
+	public ArrayList<Instructor> getInstructors() {
         return instructors;
     }
 

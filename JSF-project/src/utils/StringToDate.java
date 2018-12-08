@@ -12,6 +12,7 @@ public class StringToDate {
 	public static Date convert(String dateString) {
 		Date result = null;
 		try {
+			
 		SimpleDateFormat sdt = new SimpleDateFormat("dd-MM-YYYY");
 	    result = sdt.parse(dateString);
 	    
@@ -23,6 +24,7 @@ public class StringToDate {
 		return result;
 		
 	}
+	
 	
 	
 }
