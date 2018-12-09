@@ -8,3 +8,4 @@ package com.fym.cse.enums;
 public enum Department {
 	Civil,Electrical,MathematicsAndPhysics,Architectural,Mechanical,Industrial
 }
+  
