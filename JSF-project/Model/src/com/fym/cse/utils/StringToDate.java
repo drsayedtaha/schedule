@@ -1,4 +1,4 @@
-package com.fym.cse.dbUtils;
+package com.fym.cse.utils;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
