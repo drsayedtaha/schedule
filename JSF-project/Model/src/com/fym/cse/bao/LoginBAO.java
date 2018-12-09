@@ -1,4 +1,4 @@
-package com.fym.sce.bao;
+package com.fym.cse.bao;
 
 public interface LoginBAO {
 	

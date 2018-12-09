@@ -1,4 +1,4 @@
-package com.fym.sce.bao;
+package com.fym.cse.bao;
 
 import DTO.Course;
 import DTO.Hall;
