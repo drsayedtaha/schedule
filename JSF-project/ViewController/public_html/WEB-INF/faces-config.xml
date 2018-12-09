@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee">
+  <managed-bean>
+    <managed-bean-name>login</managed-bean-name>
+    <managed-bean-class>com.fym.cse.view.LoginBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+</faces-config>

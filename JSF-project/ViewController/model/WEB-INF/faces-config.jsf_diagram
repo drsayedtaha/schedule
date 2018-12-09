@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <Page
+      id="Page3">
+      <property
+         name="jspName">/login.jsf</property>
+      <property
+         name="x">209.5</property>
+      <property
+         name="y">101.44824</property>
+      <property
+         name="wildcard">false</property>
+   </Page>
+   <Page
+      id="Page4">
+      <property
+         name="jspName">/home.jsf</property>
+      <property
+         name="x">353.5</property>
+      <property
+         name="y">102.44824</property>
+      <property
+         name="wildcard">false</property>
+   </Page>
+</SDM>
