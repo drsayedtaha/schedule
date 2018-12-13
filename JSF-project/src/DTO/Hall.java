@@ -1,4 +1,4 @@
-package DTO;
+package dto;
 import enums.Department;
 public class Hall  {
     

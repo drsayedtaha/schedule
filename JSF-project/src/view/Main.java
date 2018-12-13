@@ -1,22 +1,30 @@
 package view;
-import DTO.*;
+import dal.*;
+import dto.*;
+import enums.*;
 public class Main {
 	
 	public static void main(String[] args) {
+		try
+		{
+			
+		Course course = new Course();
+		course.setName("Circuits");
+		course.setCode("ECE111");
+		course.setDepartment(Department.Electrical);
+		course.setGrade(Grade.FirstYear);
+		course.setWeeklyLectureHours(4);
+		course.setWeeklySectionHours(2);
 		
-		Instructor instructor = new Instructor();
-		// testing login instructor input
-		instructor.setEmail(email);
-		instructor.setPassword(password);
+		DAOFactory factory = new DAOFactory();
+		factory.createCourseDAO().insert(course);
+		}
 		
-		
-		
-		
-		
-	
-		
-		
-		
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
 	}
 
 

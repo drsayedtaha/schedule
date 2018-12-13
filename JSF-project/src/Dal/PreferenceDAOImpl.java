@@ -1,12 +1,14 @@
-package Dal;
+package dal;
 import java.util.ArrayList;
 import java.util.List;
+
+import dto.Course;
+import dto.Instructor;
+import dto.Period;
+import dto.Preference;
+
 import java.sql.*;
 
-import DTO.Course;
-import DTO.Instructor;
-import DTO.Period;
-import DTO.Preference;
 import utils.DBUtils;
 
 

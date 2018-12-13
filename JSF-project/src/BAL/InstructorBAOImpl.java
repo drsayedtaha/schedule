@@ -1,11 +1,12 @@
-package BAL;
+package bal;
 
 import java.util.List;
 import java.util.*;
-import Dal.DAOFactory;
-import DTO.Course;
-import DTO.Period;
-import DTO.Preference;
+
+import dal.DAOFactory;
+import dto.Course;
+import dto.Period;
+import dto.Preference;
 
 /**
  * Author: Mohamed Osama

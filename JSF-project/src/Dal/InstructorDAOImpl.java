@@ -1,4 +1,4 @@
-package Dal;
+package dal;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import dto.Instructor;
 import utils.DBUtils;
 import enums.*;
-import DTO.Instructor;
 
 /**
  * @author Mahmoud Elsayed Mohamed
@@ -26,8 +27,6 @@ public class InstructorDAOImpl implements InstructorDAO {
 	public Instructor getInstructor(String email) {
 		Instructor instructor = new Instructor();
 		// AcademicDegree academicDegree = new AcademicDegree();
-		Department department;
-
 		try {
 			String query = "SELECT * FROM USERS WHERE EMAIL='"+email+" ' ";		
 			Connection conn = DBUtils.getConnection();
@@ -68,7 +67,6 @@ public class InstructorDAOImpl implements InstructorDAO {
 		List<Instructor> instructors = null;
 		Instructor instructor = null;
 		// AcademicDegree academicDegree = new AcademicDegree();
-		Department department;
 
 		new DAOFactory();
 		try {
@@ -145,7 +143,6 @@ public class InstructorDAOImpl implements InstructorDAO {
 	public List<Instructor> getInstructors(AcademicDegree academicDegree) {
 		List<Instructor> result = new ArrayList<Instructor>();
 		Instructor instructor = new Instructor();
-		Department department;
 
 		try {
 			String query = "SELECT * FROM SCHEDULE.USERS WHERE Academic_Degree=?";

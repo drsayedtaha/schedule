@@ -1,4 +1,4 @@
-package Dal;
+package dal;
 import java.sql.*;
 
 import utils.DBUtils;

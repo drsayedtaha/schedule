@@ -1,7 +1,8 @@
-package 	Dal;
+package 	dal;
 
-import DTO.Period;
 import java.util.List;
+
+import dto.Period;
 
 public interface PeriodDAO {
 	

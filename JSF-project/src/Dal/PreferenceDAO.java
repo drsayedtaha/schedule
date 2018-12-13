@@ -1,6 +1,7 @@
-package 	Dal;
-import DTO.*;
+package 	dal;
 import java.util.List;
+
+import dto.*;
 
 
 public interface PreferenceDAO {

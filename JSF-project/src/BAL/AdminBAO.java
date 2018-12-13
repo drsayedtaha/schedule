@@ -1,5 +1,5 @@
-package BAL;
-import DTO.*;
+package bal;
+import dto.*;
 
 
 public interface AdminBAO {

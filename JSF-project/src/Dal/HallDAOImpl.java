@@ -1,10 +1,10 @@
-package Dal;
+package dal;
 
 import java.util.List;
 
-import DTO.Course;
-import DTO.Hall;
-import DTO.Period;
+import dto.Course;
+import dto.Hall;
+import dto.Period;
 import enums.Department;
 import utils.DBUtils;
 

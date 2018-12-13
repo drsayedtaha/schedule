@@ -1,8 +1,9 @@
-package 	Dal;
-import DTO.*;
+package 	dal;
 import enums.Department;
 
 import java.util.List;
+
+import dto.*;
 
 public interface DivisionDAO {
 

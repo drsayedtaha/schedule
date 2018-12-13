@@ -1,16 +1,17 @@
-package 	Dal;
-import DTO.Course;
+package 	dal;
 import enums.Department;
-import DTO.Division;
-
 
 import java.util.List;
+
+import dto.Course;
+import dto.Division;
 
 /**last edited by abdallah saied 2-12-2018 11:25pm
  *
  */
 public interface CourseDAO {
 
+	
   public  List<Course> getAllCourses();
   public  Course getCourse(Integer iD);
   public  Course getCourse(String code);

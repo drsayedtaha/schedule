@@ -1,8 +1,9 @@
-package Dal;
+package dal;
 
 import java.util.ArrayList;
 import java.util.List;
-import DTO.Period;
+
+import dto.Period;
 import utils.DBUtils;
 
 import java.sql.*;

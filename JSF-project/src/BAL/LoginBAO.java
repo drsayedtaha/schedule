@@ -1,4 +1,4 @@
-package BAL;
+package bal;
 
 public interface LoginBAO {
 	

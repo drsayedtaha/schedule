@@ -1,12 +1,12 @@
-package Dal;
+package dal;
 
-import DTO.Division;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import dto.Division;
 import utils.DBUtils;
 import enums.Department;
-import DTO.Division;
 /**
  * 
  * @author Saleh mahmoud

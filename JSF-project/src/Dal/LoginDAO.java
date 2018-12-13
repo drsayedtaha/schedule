@@ -1,4 +1,4 @@
-package 	Dal;
+package 	dal;
 
 public interface LoginDAO {
 

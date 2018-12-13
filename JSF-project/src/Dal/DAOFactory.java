@@ -1,4 +1,4 @@
-package Dal;
+package dal;
 /**
  made by abdallah saied 2-12-2018 11:30 pm
  * this class contains factory for all Dao's

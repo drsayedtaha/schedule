@@ -1,10 +1,10 @@
-package Dal;
+package dal;
 
 import java.util.List;
 
-import DTO.Course;
+import dto.Course;
+import dto.Division;
 import enums.Department;
-import DTO.Division;
 import utils.DBUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,9 +1,9 @@
-package BAL;
+package bal;
 
-import DTO.Course;
-import DTO.Hall;
-import DTO.Instructor;
-import DTO.Period;
+import dto.Course;
+import dto.Hall;
+import dto.Instructor;
+import dto.Period;
 
 public class ADminImpl implements AdminBAO {
 

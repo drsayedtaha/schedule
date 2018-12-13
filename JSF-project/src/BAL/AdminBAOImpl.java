@@ -1,10 +1,10 @@
-package BAL;
+package bal;
 
-import DTO.Course;
-import DTO.Hall;
-import DTO.Instructor;
-import DTO.Period;
-import Dal.DAOFactory;
+import dal.DAOFactory;
+import dto.Course;
+import dto.Hall;
+import dto.Instructor;
+import dto.Period;
 
 /**
  * @author Ahmed Hassan
