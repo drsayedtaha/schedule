@@ -27,7 +27,7 @@ public class CourseDAOImpl implements CourseDAO {
         List<Course> result = null;
         Course course = null;
         try {
-            String query = "SELECT * FROM COURSES";
+            String query = "SELECT * FROM scheduledb.COURSES ";
             Connection conn = DBUtils.getConnection();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -206,16 +206,15 @@ public class CourseDAOImpl implements CourseDAO {
         public boolean insert(Course course) {
             
 	    try {
-	    String query = "INSERT INTO COURSES(NAME,CODE,LECTURE_HOURS,SECTION_HOURS,DIVISION_ID,DEPARTMENT_ID) VALUES(?,?,?,?,?,?)";
+	    String query = "INSERT INTO COURSES(NAME,CODE,LECTURE_HOURS,SECTION_HOURS,DIVISION_ID,DEPARTMENT) VALUES(?,?,?,?,?,?)";
 		Connection conn = DBUtils.getConnection();
 		PreparedStatement pst = conn.prepareStatement(query);
-		
 		pst.setString(1,course.getName());
 		pst.setString(2,course.getCode());
 		pst.setString(3,Integer.toString(course.getWeeklyLectureHours()));
                 pst.setString(4,Integer.toString(course.getWeeklySectionHours()));
                 pst.setString(5,Integer.toString(course.getDivision().getId()))  ;    
-                pst.setString(6,course.getDepartment().toString());      
+               pst.setString(6,course.getDepartment().toString());      
 
 			
 		conn.close();
@@ -228,8 +227,6 @@ public class CourseDAOImpl implements CourseDAO {
 			e.printStackTrace();
 		}
 	    return false;
-
-
 		
 	}
 

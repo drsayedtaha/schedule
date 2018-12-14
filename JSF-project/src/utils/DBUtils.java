@@ -16,20 +16,20 @@ public class DBUtils {
 		Connection conn = null;
 		try
 		{
-		Class.forName("oracle.jdbc.Driver.OracleDriver");
-		String url = "jdbc:oracle:thin:@//localhost:1521/xe";
+		// Class.forName("oracle.jdbc.Driver.OracleDriver");
+		String url = "jdbc:oracle:thin:dbusername/oracle@localhost:1521:XE";
 		conn = DriverManager.getConnection(url, "dbusername", "oracle");
 		}
 		catch (SQLException e) {
 			System.out.println("SQL exception at DB connection");
 			e.printStackTrace();
-			
 		}
+		/*
 		catch (ClassNotFoundException e) {
 			System.out.println("Class not found exception");
 			e.printStackTrace();
 		}
-		
+		*/
 		catch (Exception e) {
 			e.printStackTrace();
 		}
