@@ -35,7 +35,7 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 		Period period = new Period();
 		DAOFactory dAOFactory = new DAOFactory();
 		try {
-			String sql = "SELECT * FROM SCHEDULE.Prefrences WHERE USER_ID = ?";
+			String sql = "SELECT * FROM Prefrences WHERE USER_ID = ?";
 			Connection connection = DBUtils.getConnection();
 			PreparedStatement pstatement = connection.prepareStatement(sql);
 			pstatement.setString(1, instructor.getId().toString());
@@ -75,7 +75,7 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 		Period period = new Period();
 		DAOFactory dAOFactory = new DAOFactory();
 		try {
-			String sql = "SELECT * FROM SCHEDULE.Prefrences WHERE COURSE_ID = ?";
+			String sql = "SELECT * FROM Prefrences WHERE COURSE_ID = ?";
 			Connection connection = DBUtils.getConnection();
 			PreparedStatement pstatement = connection.prepareStatement(sql);
 			pstatement.setString(1, course.getiD().toString());
@@ -114,7 +114,7 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 		try {
 			Connection connection = DBUtils.getConnection();
 			for (int i = 0; i < preferences.size(); i++) {
-				String sql = "INSERT INTO SCHEDULE.Preferences(USER_ID, COURSE_ID, PERIOD_ID, RANK) VALUES (?, ?, ?, ?)";
+				String sql = "INSERT INTO Preferences(USER_ID, COURSE_ID, PERIOD_ID, RANK) VALUES (?, ?, ?, ?)";
 				PreparedStatement pstatement = connection.prepareStatement(sql);
 				pstatement.setString(1, preferences.get(i).getInstructor().getId().toString());
 				pstatement.setString(2, preferences.get(i).getCourse().getID().toString());
@@ -141,7 +141,7 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 	public boolean delete(Instructor instructor) {
 		try {
 			Connection connection = DBUtils.getConnection();
-			String sql = "DELETE FROM SCHEDULE.Preferences WHERE USER_ID = ?";
+			String sql = "DELETE FROM Preferences WHERE USER_ID = ?";
 			PreparedStatement pstatement = connection.prepareStatement(sql);
 			pstatement.setString(1, instructor.getId().toString());
 			pstatement.executeQuery();

@@ -10,6 +10,8 @@ import java.util.List;
 
 import dto.Instructor;
 import utils.DBUtils;
+import utils.IDGenerator;
+import utils.DateUtils;
 import enums.*;
 
 /**
@@ -39,7 +41,6 @@ public class InstructorDAOImpl implements InstructorDAO {
 			instructor.setDateOfEmployment(rs.getDate(5));
 			instructor.setAcademicDegree(AcademicDegree.valueOf(rs.getString("ACADEMIC_DEGREE")));
 			instructor.setDepartment(Department.valueOf(rs.getString("DEPARTMENT")));
-
 			}
 		
 		conn.close();
@@ -106,7 +107,7 @@ public class InstructorDAOImpl implements InstructorDAO {
 		// AcademicDegree academicDegree = new AcademicDegree();
 		
 		try {
-			String query = "SELECT * FROM SCHEDULE.USERS WHERE DEPARTMENT_ID=?";
+			String query = "SELECT * FROM USERS WHERE DEPARTMENT_ID=?";
 			Connection conn = DBUtils.getConnection();
 			PreparedStatement pstatement = conn.prepareStatement(query);	
 			ResultSet rs = pstatement.executeQuery(query);
@@ -145,7 +146,7 @@ public class InstructorDAOImpl implements InstructorDAO {
 		Instructor instructor = new Instructor();
 
 		try {
-			String query = "SELECT * FROM SCHEDULE.USERS WHERE Academic_Degree=?";
+			String query = "SELECT * FROM USERS WHERE Academic_Degree=?";
 			Connection conn = DBUtils.getConnection();
 			PreparedStatement pstatement = conn.prepareStatement(query);	
 			ResultSet rs = pstatement.executeQuery(query);
@@ -176,22 +177,21 @@ public class InstructorDAOImpl implements InstructorDAO {
 	 */
 	@Override
 	public boolean insert(Instructor instructor) {
+		Integer instructorId = IDGenerator.createPrimaryKey("users");
 		try {
-			String query = "INSERT INTO USERS(EMAIL,PASSWORD,FULL_NAME,DATE_OF_EMPLOYMENT,ACADEMIC_FIELD,ROLE_ID,DEPARTMENT_ID,ACADEMIC_DEGREE_ID) VALUES(?,?,?,?,?,?,?,?)";
+			String query = "INSERT INTO USERS(user_id,EMAIL,PASSWORD,FULL_NAME,DATE_OF_EMPLOYMENT,ACADEMIC_FIELD,ROLE,DEPARTMENT,ACADEMIC_DEGREE) VALUES(?,?,?,?,?,?,?,?,?)";
 			Connection conn = DBUtils.getConnection();
 			PreparedStatement pst = conn.prepareStatement(query);
-			
+			pst.setInt(1, instructorId);
 			pst.setString(2, instructor.getEmail());
 			pst.setString(3, instructor.getPassword());
 			pst.setString(4,instructor.getFullName());
-			pst.setString(5,instructor.getDateOfEmployment().toString());
+			pst.setString(5,DateUtils.convert(instructor.getDateOfEmployment()));
 			pst.setString(6, instructor.getAcademicField());
-			pst.setString(7, instructor.getDepartment().toString());
-			pst.setString(8, Role.Instructor.toString());
+			pst.setString(7, Role.Instructor.toString());
+			pst.setString(8, instructor.getDepartment().toString());
 			pst.setString(9, instructor.getAcademicDegree().toString());
-
-			
-				
+			pst.executeQuery();
 			conn.close();
 			pst.close();
 			
@@ -249,17 +249,12 @@ public class InstructorDAOImpl implements InstructorDAO {
 			pst.setString(2, instructor.getEmail());
 			pst.setString(3, instructor.getPassword());
 			pst.setString(4,instructor.getFullName());
-			pst.setString(5,instructor.getDateOfEmployment().toString());
+			pst.setString(5,DateUtils.convert(instructor.getDateOfEmployment()));
 			pst.setString(6, instructor.getAcademicField());
 			pst.setString(7, instructor.getDepartment().toString());
 			pst.setString(8, Role.Instructor.toString());
 			pst.setString(9, instructor.getAcademicDegree().toString());
-
-
-
-			
-			
-				
+			pst.executeQuery();
 			conn.close();
 			pst.close();
 			
@@ -284,7 +279,7 @@ public class InstructorDAOImpl implements InstructorDAO {
 			PreparedStatement pst = conn.prepareStatement(query);
 			
 			pst.setString(4, instructor.getEmail());
-			
+			pst.executeQuery();
 			conn.close();
 			pst.close();
 			

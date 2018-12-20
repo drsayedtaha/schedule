@@ -82,12 +82,13 @@ public class DivisionDAOImpl implements DivisionDAO {
 	public boolean insert(Division division) {
 		
 		try {
-			String query = "INSERT INTO DIVISIONS VALUES(?)";
+			String query = "INSERT INTO DIVISION(division_name,division_id) VALUES(?,?)";
 			Connection conn = DBUtils.getConnection();
 			PreparedStatement pst = conn.prepareStatement(query);
 
 			pst.setString(1, division.getName());
-			
+			pst.setInt(2, 3); // Testing id 
+			pst.executeQuery();
 			conn.close();
 			pst.close();
 

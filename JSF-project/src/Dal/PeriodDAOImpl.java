@@ -88,7 +88,7 @@ public class PeriodDAOImpl implements PeriodDAO {
 		pst.setString(2, period.getName());
 		pst.setString(3, period.getStartTime());
 		pst.setString(4, period.getEndTime());
-			
+		pst.executeQuery();
 		return true;
 		
 		}
@@ -113,7 +113,8 @@ public class PeriodDAOImpl implements PeriodDAO {
 		{
 			
 		pst.setString(1, period.getName());
-		
+		pst.executeQuery();
+
 		
 		return true;
 		}

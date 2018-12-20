@@ -7,7 +7,8 @@ import dto.Hall;
 import dto.Period;
 import enums.Department;
 import utils.DBUtils;
-
+import utils.IDGenerator;
+import enums.Department;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,51 +17,58 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class HallDAOImpl implements HallDAO {
-	List<Hall> result = new ArrayList<Hall>();
-	Hall hall = new Hall();
+	
+	
 	@Override
 	public List<Hall> getAllHalls() {
-			try {
-				String query = "SELECT * FROM SCHEDULE.HALLS";
+				List<Hall> result = null;
+				String query = "SELECT * FROM HALLS";
 				try (Connection conn = DBUtils.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(query);
-				ResultSet rs = pstmt.executeQuery(query)){
-			while(rs.next()) {
-				
-				hall.setName(rs.getString(2)); //gets data from second column
-				hall.setLocation(rs.getString(3)); //gets data from third column
-				hall.setCapacity(rs.getInt(4));
-				result.add(hall);
-			}
-				}
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery(query);)
+				{
+					while(rs.next()) {
+						if(result==null) result = new ArrayList<>();
+						Hall hall = new Hall();
+						
+						hall.setID(rs.getInt("hall_id"));
+						hall.setName(rs.getString("name")); 
+						hall.setCode(rs.getString("code"));
+						hall.setDepartment(Department.valueOf(rs.getString("department")));
+						hall.setCapacity(rs.getInt("capacity"));
+						result.add(hall);
 					}
+				
+				}
+				
 			catch (SQLException e) {
 				e.printStackTrace();
 			} 
 	
-			return result ;
+			return result;
 	}
 	@Override
 	public List<Hall> getHalls(Department department) {
-		try {
-			String query = "SELECT * FROM SCHEDULE.HALLS.DEPARTEMENT";
+		List<Hall> result = null;
+			String query = "SELECT * FROM HALLS where DEPARTEMENT = '"+department.toString()+"'";
 			try (Connection conn = DBUtils.getConnection();
 					PreparedStatement pstmt = conn.prepareStatement(query);
 					ResultSet rs = pstmt.executeQuery(query)){
 				while(rs.next()) {
-					
+					if(result==null) result = new ArrayList<Hall>();
+					Hall hall = new Hall();
+					hall.setID(rs.getInt("hall_id"));
 					hall.setName(rs.getString("Name")); //gets data from Name column
-					hall.setLocation(rs.getString("Location")); //gets data from third column
+					hall.setCode(rs.getString("code")); //gets data from third column
 					hall.setCapacity(rs.getInt("Capacity"));
+					hall.setCategory(rs.getString("category"));
 					result.add(hall);
 				}
 					}
-						}
+						
 				catch (SQLException e) {
 					e.printStackTrace();
 				} 
-					
-				
 			
 				return result ;
 		}
@@ -71,17 +79,16 @@ public class HallDAOImpl implements HallDAO {
 	@Override
 	public boolean exists(Hall hall) {
 		try {
-			String query = "SELECT * FROM SCHEDULE.HALLS.DEPARTEMENT";
+			String query = "SELECT * FROM HALLS ";
 			try (Connection conn = DBUtils.getConnection();
 				Statement stmt = conn.createStatement();
 					ResultSet rs = stmt.executeQuery(query)){
 				while(rs.next())
 				{
-					if(rs.getString("location").equals(hall.getLocation()))
+					if(rs.getString("name").equalsIgnoreCase(hall.getName()))
 						return true;	
 				}
-				
-				
+		
 			}
 			}
 			
@@ -95,15 +102,20 @@ public class HallDAOImpl implements HallDAO {
 
 	@Override
 	public boolean insert(Hall hall) {
+		Integer hallId = IDGenerator.createPrimaryKey("halls");
 		try {
-			String query = "INSERT INTO SCHEDULE.HALLS(HALL_NAME,LOCATION,CAPACITY) VALUES(?,?,?)";
+			String query = "INSERT INTO HALLS(hall_id,department,category,name,capacity,code) VALUES(?,?,?,?,?,?)";
 			try (Connection conn = DBUtils.getConnection();
 					PreparedStatement pstmt = conn.prepareStatement(query))
 					{
 			
-			pstmt.setString(1, hall.getName());
-			pstmt.setString(2, hall.getLocation());
-			pstmt.setInt(3, hall.getCapacity());
+			pstmt.setInt(1, hallId);
+			pstmt.setString(2, hall.getDepartment().toString());
+			pstmt.setString(3, hall.getCategory());
+			pstmt.setString(4, hall.getName());
+			pstmt.setInt(5, hall.getCapacity());
+			pstmt.setString(6, hall.getCode());
+
 			boolean flag=exists(hall);
 			if(!flag)
 			return true;
@@ -124,7 +136,7 @@ public class HallDAOImpl implements HallDAO {
 	@Override
 	public boolean update(Hall hall) {
 		try {
-			String query = "UPDATE SCHEDULE.HALLS SET HALL_NAME=?,LOCATION=?,CAPACITY=? WHERE HALL_ID=?";
+			String query = "UPDATE HALLS SET NAME=?,category=?,CAPACITY=? WHERE HALL_ID=?";
 			try (Connection conn = DBUtils.getConnection();
 					PreparedStatement pstmt = conn.prepareStatement(query))
 			//another method
@@ -134,7 +146,7 @@ public class HallDAOImpl implements HallDAO {
 			//rs.updateString(LOCATION, hall.getName());
 			//rs.updateInt(CAPACITY, hall.getCapacity());
 			pstmt.setString(1, hall.getName());
-			pstmt.setString(2, hall.getLocation());
+			pstmt.setString(2, hall.getCategory());
 			pstmt.setInt(3, hall.getCapacity());
 			pstmt.setInt(4,hall.getID());
 			}
@@ -150,7 +162,7 @@ public class HallDAOImpl implements HallDAO {
 	@Override
 	public boolean delete(Hall hall) {
 		try {
-			String delete= "DELETE FROM SCHEDULE.HALLS WHERE HALLS.NAME=?";
+			String delete= "DELETE FROM HALLS WHERE HALLS.NAME=?";
 			try (Connection conn = DBUtils.getConnection();
 					PreparedStatement pstmt = conn.prepareStatement(delete))
 			//another method

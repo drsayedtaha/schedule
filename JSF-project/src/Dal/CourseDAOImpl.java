@@ -6,6 +6,8 @@ import dto.Course;
 import dto.Division;
 import enums.Department;
 import utils.DBUtils;
+import utils.IDGenerator;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,7 +29,7 @@ public class CourseDAOImpl implements CourseDAO {
         List<Course> result = null;
         Course course = null;
         try {
-            String query = "SELECT * FROM scheduledb.COURSES ";
+            String query = "SELECT * FROM COURSES ";
             Connection conn = DBUtils.getConnection();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -204,19 +206,23 @@ public class CourseDAOImpl implements CourseDAO {
         /**insert(Course course) it's a method takes object of course  then insert it into the database and returns true if inserted false if not inserted
 	*/
         public boolean insert(Course course) {
-            
+         Integer courseId =   IDGenerator.createPrimaryKey("courses");
 	    try {
-	    String query = "INSERT INTO COURSES(NAME,CODE,LECTURE_HOURS,SECTION_HOURS,DIVISION_ID,DEPARTMENT) VALUES(?,?,?,?,?,?)";
+	    String query = "INSERT INTO COURSES(NAME,CODE,LECTURE_HOURS,SECTION_HOURS,DIVISION_ID,DEPARTMENT, TERM,course_id) "
+	    		+ " VALUES(?,?,?,?,?,?,?,?)";
+	    
 		Connection conn = DBUtils.getConnection();
 		PreparedStatement pst = conn.prepareStatement(query);
 		pst.setString(1,course.getName());
 		pst.setString(2,course.getCode());
 		pst.setString(3,Integer.toString(course.getWeeklyLectureHours()));
-                pst.setString(4,Integer.toString(course.getWeeklySectionHours()));
-                pst.setString(5,Integer.toString(course.getDivision().getId()))  ;    
-               pst.setString(6,course.getDepartment().toString());      
+        pst.setString(4,Integer.toString(course.getWeeklySectionHours()));
+        pst.setString(5,Integer.toString(course.getDivision().getId()))  ;    
+        pst.setString(6,course.getDepartment().toString());   
+        pst.setString(7, "First Term");
+        pst.setInt(8, courseId );
+        pst.executeQuery();
 
-			
 		conn.close();
 		pst.close();
 		
@@ -235,13 +241,13 @@ public class CourseDAOImpl implements CourseDAO {
 	*/
     public boolean exists(Course course) {
         try {
-            String query = "SELECT * FROM COURSES";
+            String query = "SELECT * FROM COURSES WHERE code = '"+course.getCode()+"'";
             Connection conn = DBUtils.getConnection();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
-
+            
             while (rs.next()) {
-                if (rs.getString(5).equals(course.getCode()))
+                if (rs.getString(5).equalsIgnoreCase(course.getCode()))
                     conn.close();
                 stmt.close();
                 rs.close();
@@ -251,7 +257,6 @@ public class CourseDAOImpl implements CourseDAO {
             conn.close();
             stmt.close();
             rs.close();
-
         }
 
         catch (SQLException e) {
@@ -270,7 +275,7 @@ public class CourseDAOImpl implements CourseDAO {
                 "WHERE COURSE_ID = ?";
             Connection conn = DBUtils.getConnection();
             PreparedStatement pst = conn.prepareStatement(query);
-
+            
             pst.setString(1, course.getName());
             pst.setString(2, course.getCode());
             pst.setString(3, Integer.toString(course.getWeeklyLectureHours()));
@@ -279,7 +284,7 @@ public class CourseDAOImpl implements CourseDAO {
             pst.setString(6, course.getDepartment().toString());
             pst.setString(7, Integer.toString(course.getID()));
 
-
+            pst.executeQuery();
             conn.close();
             pst.close();
 
@@ -302,7 +307,7 @@ public class CourseDAOImpl implements CourseDAO {
             PreparedStatement pst = conn.prepareStatement(query);
             pst.setString(1, course.getCode());
 
-
+            pst.executeQuery();
             conn.close();
             pst.close();
 
