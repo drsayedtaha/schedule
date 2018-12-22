@@ -10,7 +10,8 @@ public interface InstructorDAO {
     public List<Instructor> getAllInstructors();
     public  List<Instructor> getInstructors(Department department);
     public  List<Instructor> getInstructors(AcademicDegree academicDegree);
-
+    public Instructor getInstructor(Integer id);
+    
     public boolean insert(Instructor instructor);
     public boolean exists(Instructor instructor);
     public boolean update(Instructor instructor);

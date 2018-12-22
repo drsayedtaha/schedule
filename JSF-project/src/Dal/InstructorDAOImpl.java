@@ -291,4 +291,38 @@ public class InstructorDAOImpl implements InstructorDAO {
 			return false;
 	}
 
+	
+	/**
+	 * returns specific instructor from its primary key
+	 */
+	@Override
+	public Instructor getInstructor(Integer id) {
+		Instructor inst = null;
+		String query = "select * from users where user_id = '"+id+"'";
+		try(Connection con = DBUtils.getConnection();
+			Statement stmt = con.createStatement();
+				ResultSet rs = stmt.executeQuery(query);)
+		{
+			inst = new Instructor();
+			inst.setFullName(rs.getString("full_name"));
+			/*
+			inst.setEmail(rs.getString("email"));
+			inst.setFullName(rs.getString("full_name"));
+			inst.setFullName(rs.getString("full_name"));
+			inst.setFullName(rs.getString("full_name"));
+			inst.setFullName(rs.getString("full_name"));
+			*/
+		}
+		
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return inst;
+	}
+
 }

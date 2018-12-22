@@ -1,5 +1,6 @@
 package utils;
 import java.sql.*;
+
 /**
  * 
  * @author Ahmed Fayez
@@ -9,18 +10,23 @@ import java.sql.*;
 public class DBUtils {
 	/**
 	 * A static method that returns a connection object 
-	 * for further usage whenever a connection needs to be created
+	 * for further usage whenever a connection needs to be established
 	 * @return Connection object
 	 */
 	public static Connection getConnection() {
 		Connection conn = null;
 		try
 		{
-			String url = "jdbc:oracle:thin:dbusername/oracle@localhost:1521:XE";
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:XE";
 			conn = DriverManager.getConnection(url, "dbusername", "oracle");
 		}
 		catch (SQLException e) {
-			System.out.println("SQL exception at DB connection");
+			System.out.println("Exception at DB connection");
+			e.printStackTrace();
+		}
+		
+		catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		

@@ -25,26 +25,31 @@ public class Main {
 		if(factory.createDivisionDAO().insert(division))
 			System.out.println("division added");;
 		*/
-		/*
+		
 		Course course = new Course();
-		course.setName("Civil");
-		course.setCode("CI100");
+		course.setName("Software Engineering");
+		course.setCode("SWE101");
 		course.setDepartment(Department.Electrical);
 		course.setGrade(Grade.FirstYear);
 		course.setWeeklyLectureHours(4);
 		course.setWeeklySectionHours(3);
 		course.setDivision(division);
-		*/
+		
 		
 		Instructor instructor = new Instructor();
-		instructor.setFullName("Ahmed Fayez");
-		instructor.setEmail("example@fayoum.edu.eg");
+		instructor.setFullName("Sayed Taha");
+		instructor.setEmail("example22@fayoum.edu.eg");
 		instructor.setPassword("1234");
 		instructor.setAcademicDegree(AcademicDegree.AssistantLecturer);
 		instructor.setDepartment(Department.Electrical);
 		if(factory.createInstructorDAO().insert(instructor))
 			System.out.println("Instructor added");
 		
+		Preference pref = new Preference();
+		pref.setInstructor(instructor);
+		pref.setCourse(course);
+		if(factory.createPreferenceDAO().insert(pref))
+			System.out.println("pref added");
 		
 		/*
 		if(factory.createCourseDAO().insert(course)) {

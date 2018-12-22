@@ -10,6 +10,7 @@ import dto.Preference;
 import java.sql.*;
 
 import utils.DBUtils;
+import utils.IDGenerator;
 
 
 /**
@@ -151,6 +152,86 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 			return false;
 		}
 		return true;
+	}
+
+
+	@Override
+	public List<Preference> getAllPreferences() {
+		List<Preference> prefrences = null;
+		Preference prefrence = null;
+		Course course  = null;
+		Period period = null;
+		DAOFactory dAOFactory = null;
+		String sql = "SELECT * FROM Prefrences ";
+		
+		try (Connection connection = DBUtils.getConnection();
+			Statement stmt = connection.createStatement();
+			ResultSet result = stmt.executeQuery(sql);)
+		{
+			
+		while(result.next()) {
+			if(prefrences==null)
+				{
+				 prefrences = new ArrayList<Preference>();
+				 prefrence = new Preference();
+				 course  = new Course();
+				 period = new Period();
+				 dAOFactory = new DAOFactory();
+				}
+			Integer courseID = result.getInt("COURSE_ID");
+			Integer periodID = result.getInt("PERIOD_ID");
+			Integer rank = result.getInt("RANK");
+			Integer instructorID = result.getInt("user_id");
+			course = dAOFactory.createCourseDAO().getCourse(courseID);
+			period = dAOFactory.createPeriodDAO().getPeriod(periodID);
+			prefrence.setCourse(course);
+			prefrence.setPeriod(period);
+			prefrence.setRank(rank);
+			prefrence.setInstructor(dAOFactory.createInstructorDAO().getInstructor(instructorID));
+			prefrences.add(prefrence);
+			}
+		connection.close();
+		stmt.close();
+		result.close();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return prefrences;
+	}
+
+
+	@Override
+	public boolean insert(Preference preference) {
+		Integer prefID = IDGenerator.createPrimaryKey("preferences");
+		String sql = "INSERT INTO Preferences(USER_ID, COURSE_ID, PERIOD_ID, RANK,preference_id) VALUES (?,?, ?, ?, ?)";
+		try (
+			Connection connection = DBUtils.getConnection();
+				PreparedStatement pstatement = connection.prepareStatement(sql);)
+		{
+				
+				pstatement.setInt(1, preference.getInstructor().getId());
+				pstatement.setInt(2, preference.getCourse().getID());
+				pstatement.setInt(3, preference.getPeriod().getID());
+				pstatement.setInt(4, preference.getRank());
+				pstatement.setInt(5, prefID);
+				pstatement.executeQuery();
+				pstatement.close();
+			
+			connection.close();
+			pstatement.close();
+		}
+		catch (SQLException e) {
+			
+			e.printStackTrace();
+			return false;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+		return true;
+		
 	}
 
 }
