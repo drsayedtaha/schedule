@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15450952176270" configfile="/scheduler/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="WEB-INF/NewFile" x="345" y="246" id="pf15450952336331" path="/WEB-INF/NewFile.jsp"/>
+</pageflow:Pageflow>

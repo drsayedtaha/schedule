@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	
+	<h:head>
+	<title>Prefs</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <link rel="shortcut icon" href="css/images/logo.png" />
+	</h:head>
+
+<h:body style = "background-color: #999999" >
+        
+        <div class="header-container">
+            <div class="header-item">
+                <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                    <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"/> </a> </div>
+            <div> </div>
+            <div class="navpar-container" style="padding-top: 3px">
+                  <div><a href="Home.html" class="head-href"> Log out </a></div>
+                  <div><a href="Students.html" class="head-href"> Students </a></div>
+	        </div>
+		</div> 
+ 
+        <br></br><br></br>  <br></br> 
+        
+        <div class = "table-container">
+            <div>
+                <table style="width:100%" class="TableListJS" id="entries" >
+                    <tr>
+                        <th >No</th>
+                        <th>Instructor</th>
+                        <th>Academic Position</th>
+                        <th>Department</th>
+                        <th>Course</th>
+                 	    <th>Rank</th>
+                        <th>Grade</th>
+                    </tr>
+    
+                </table> </div>
+               
+        </div>
+
+		<br></br>
+        <br></br>
+		
+        <br></br>
+        
+        <p style = "text-align: center"><a  class="btn btn-primary p-3 px-xl-5 py-xl-3" onclick="alert('Data Saved')" >Save</a></p>
+
+
+	
+</h:body>
+
+</html>

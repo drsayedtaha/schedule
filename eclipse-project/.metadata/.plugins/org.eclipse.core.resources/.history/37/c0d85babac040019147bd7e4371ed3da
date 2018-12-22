@@ -1,0 +1,25 @@
+package bal;
+
+import bal.*;
+
+public class BaoFactory {
+
+	public CourseBAO createCourseBao(){
+        return new CourseBAOImpl();
+  }
+	public HallBAO createHallBao(){
+        return new CourseDAOImpl();
+  }
+	public PreferenceBAO createPreferenceBao(){
+        return new CourseDAOImpl();
+  }
+	public CourseDAO createCourseDAO(){
+        return new CourseDAOImpl();
+  }
+	public CourseDAO createCourseDAO(){
+        return new CourseDAOImpl();
+  }
+	public CourseDAO createCourseDAO(){
+        return new CourseDAOImpl();
+  }
+}

@@ -1,0 +1,8 @@
+package view;
+
+import javax.annotation.ManagedBean;
+
+@ManagedBean
+public class PreferenceBean {
+
+}

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:f="http://java.sun.com/jsf/core" 
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Users</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <link rel="shortcut icon" href="css/images/logo.png" />
+	</h:head>
+    
+	<body style = "background-color: #999999" >
+        
+        <div class="header-container">
+            <div class="header-item">
+                <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                    <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"/> </a> </div>
+            <div> </div>
+            <div class="navpar-container" style="padding-top: 3px">
+                  <div><a href="Home.html" class="head-href"> Log out </a></div>
+                  <div><a href="Students.html" class="head-href"> Students </a></div>
+	        </div>
+		</div> 
+        
+			
+			<div class="styled-select blue semi-square">
+				<select>
+					<option>Electric Circuits 2</option>
+					<option>Electronics 1</option>
+				</select> </div>
+			<div class="grid-item">
+		<button type="button" onclick="alert('Course added successfully')" class="add">Add</button> </div>
+		 
+        
+        <div class = "table-container">
+            <div>
+                <h:datatable style="width:100%" class="TableListJS" id="entries" >
+                    <tr>
+                        <th>No</th>
+                        <th>Course Title</th>
+                        <th>Course Code</th>
+                        <th>Department</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Electric Circuits 2</td>
+                        <td>ECE202</td>
+                        <td>Department of Electrical Engineering</td>
+                        <td>Second Grade</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Electronics 1</td>
+                        <td>ECE201</td>
+                        <td>Department of Electrical Engineering</td>
+                        <td>Second Grade</td>
+                    </tr>
+                </h:datatable> </div>
+            <div>
+				<button type="button" class="add">Move Up</button>
+                <br></br>
+                <br></br>
+				<button type="button" class="add">Move Down</button>           
+                <br></br>
+                <br></br>
+				<h:commandbutton type="button" class="delete">Delete</h:commandbutton> </div>         
+        </div>
+
+		<br></br>
+        <br></br>
+		<hr></hr>
+			
+			
+		 
+		<h1 style = "text-align: center">Choose Available Times</h1>
+		 
+		
+		<div class="grid-container">
+			<div class="grid-item">Course</div>
+			<div class="grid-item">Day</div>
+			<div class="grid-item">Time</div>
+			<div class="grid-item"></div>
+			<div class="styled-select blue semi-square">
+				<select>
+					<option>Electric Circuits 2</option>
+					<option>Electronics 1</option>
+				</select>  </div>
+			<div class="styled-select blue semi-square">
+				<select name = "days">
+					<option>Saturday</option>
+					<option>Sunday</option>
+					<option>Monday</option>
+					<option>Tuesday</option>
+					<option>Wednesday</option>
+					<option>Thursday</option>
+				</select> </div>
+			<div class="styled-select blue semi-square">
+				<select name = "times">
+					<option>08:50 - 10:20</option>
+					<option>10:30 - 12:00</option>
+					<option>12:20 - 01:50</option>
+					<option>02:00 - 03:30</option>
+				</select> </div>
+			<div class="grid-item">
+				<button type="button" onclick="alert('Time added successfully')" class = "add">Add</button> </div>
+		</div> 
+		
+		
+        <div class = "table-container">
+            <div>
+                <table style="width:100%">
+                    <tr>
+                        <th>No</th>
+                        <th>Course Title</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Electric Circuits 2</td>
+                        <td>Saturday</td>
+                        <td>02:00 - 03:30</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Electric Circuits 2</td>
+                        <td>Monday</td>
+                        <td>08:50 - 10:20</td>
+                    </tr>
+                </table>  </div>
+            <div>
+				<button type="button" class="add">Move Up</button>
+                <br></br>
+                <br></br>
+				<button type="button" class="add">Move Down</button>           
+                <br></br>
+                <br></br>
+				<button type="button" class="delete">Delete</button> </div>
+            
+        </div>
+        
+        <hr></hr>
+        <br></br>
+        
+        <p style = "text-align: center"><a  class="btn btn-primary p-3 px-xl-5 py-xl-3" onclick="alert('Data Saved')" >Save</a></p>
+
+<p:commandButton value="Submit" />
+</body>
+<f:view>
+</f:view>
+
+</html>

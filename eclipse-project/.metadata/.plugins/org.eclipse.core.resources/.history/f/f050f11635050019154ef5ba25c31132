@@ -1,0 +1,20 @@
+package beans;
+
+import javax.annotation.ManagedBean;
+import dto.Preference;
+import java.util.List;
+
+@ManagedBean
+public class PrefsBean {
+	private List<Preference> prefs;
+
+	public List<Preference> getPrefs() {
+		return prefs;
+	}
+
+	public void setPrefs(List<Preference> prefs) {
+		this.prefs = prefs;
+	}
+	
+	
+}

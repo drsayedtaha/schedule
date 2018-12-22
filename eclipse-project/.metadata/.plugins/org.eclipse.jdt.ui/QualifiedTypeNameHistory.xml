@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.annotation.ManagedBean"/>
+    <fullyQualifiedTypeName name="javax.faces.bean.ApplicationScoped"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="dto.Preference"/>
+    <fullyQualifiedTypeName name="dal.PreferenceDAO"/>
+    <fullyQualifiedTypeName name="utils.IDGenerator"/>
+</qualifiedTypeNameHistroy>

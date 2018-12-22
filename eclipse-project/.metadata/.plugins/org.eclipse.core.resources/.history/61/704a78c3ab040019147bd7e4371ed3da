@@ -1,0 +1,25 @@
+package bal;
+
+
+import dal.DAOFactory;
+import dto.Preference;
+
+public class PreferenceBAOImp {
+	DAOFactory dAOFactory = new DAOFactory();
+	
+	public boolean savePreference(Preference preferences) {
+		if (dAOFactory.createPreferenceDAO().exists(preferences))
+		{
+			return false;
+		}
+		else
+			dAOFactory.createPreferenceDAO().insert(preferences);
+		return true;
+	}
+
+
+	public boolean deletePreference(Preference preference) {
+		dAOFactory.createPreferenceDAO().delete(preference);
+		return true;
+	}
+}
