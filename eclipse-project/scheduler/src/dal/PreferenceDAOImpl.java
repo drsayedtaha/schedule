@@ -36,7 +36,7 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 		Period period = new Period();
 		DAOFactory dAOFactory = new DAOFactory();
 		try {
-			String sql = "SELECT * FROM Prefrences WHERE USER_ID = ?";
+			String sql = "SELECT * FROM Preferences WHERE USER_ID = ?";
 			Connection connection = DBUtils.getConnection();
 			PreparedStatement pstatement = connection.prepareStatement(sql);
 			pstatement.setString(1, instructor.getId().toString());
@@ -76,7 +76,7 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 		Period period = new Period();
 		DAOFactory dAOFactory = new DAOFactory();
 		try {
-			String sql = "SELECT * FROM Prefrences WHERE COURSE_ID = ?";
+			String sql = "SELECT * FROM Preferences WHERE COURSE_ID = ?";
 			Connection connection = DBUtils.getConnection();
 			PreparedStatement pstatement = connection.prepareStatement(sql);
 			pstatement.setString(1, course.getiD().toString());
@@ -162,7 +162,7 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 		Course course  = null;
 		Period period = null;
 		DAOFactory dAOFactory = null;
-		String sql = "SELECT * FROM Prefrences ";
+		String sql = "SELECT * FROM PREFERENCES";
 		
 		try (Connection connection = DBUtils.getConnection();
 			Statement stmt = connection.createStatement();
@@ -171,13 +171,12 @@ public class PreferenceDAOImpl implements PreferenceDAO {
 			
 		while(result.next()) {
 			if(prefrences==null)
-				{
 				 prefrences = new ArrayList<Preference>();
-				 prefrence = new Preference();
-				 course  = new Course();
-				 period = new Period();
-				 dAOFactory = new DAOFactory();
-				}
+			 prefrence = new Preference();
+			 course  = new Course();
+			 period = new Period();
+			 dAOFactory = new DAOFactory();
+				
 			Integer courseID = result.getInt("COURSE_ID");
 			Integer periodID = result.getInt("PERIOD_ID");
 			Integer rank = result.getInt("RANK");

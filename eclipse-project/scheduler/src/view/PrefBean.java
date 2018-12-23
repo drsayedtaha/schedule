@@ -8,13 +8,16 @@ import dal.*;
 public class PrefBean {
 	
 	private List<Preference> prefList;
-	private String test;
-
+	
+	
+	
 	@PostConstruct
 	public void init() {
 		try {
+			
 		DAOFactory dbfactory = new DAOFactory();
 		prefList = dbfactory.createPreferenceDAO().getAllPreferences();
+		
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -22,14 +25,6 @@ public class PrefBean {
 	}
 	
 	
-	public String getTest() {
-		return test;
-	}
-
-	public void setTest(String test) {
-		this.test = test;
-	}
-
 
 	public List<Preference> getPrefList() {
 		return prefList;

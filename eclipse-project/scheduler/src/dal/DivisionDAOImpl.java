@@ -124,7 +124,7 @@ public class DivisionDAOImpl implements DivisionDAO {
 	@Override
 	public Division getDivision(Integer id) {
 		
-		String query = "select * from DIVISIONS where id = '"+id.toString()+"'";
+		String query = "select * from DIVISIONS where division_id = '"+id+"'";
 		try(Connection conn = DBUtils.getConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);)

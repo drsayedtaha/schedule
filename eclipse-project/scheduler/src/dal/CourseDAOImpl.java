@@ -145,20 +145,22 @@ public class CourseDAOImpl implements CourseDAO {
     /** getCourse(Integer id) method takes the id of type Integer and returns the course with that id..*/
     public  Course getCourse(Integer iD){
         try {
+        	
         String query = "SELECT * FROM COURSES WHERE COURSE_ID=? ";
         Connection conn = DBUtils.getConnection();
         PreparedStatement pst = conn.prepareStatement(query);
-        pst.setString(1, Integer.toString(iD));
-        ResultSet rs = pst.executeQuery(query);
-
+        pst.setInt(1, iD);
+        ResultSet rs = pst.executeQuery();
+        
+        rs.next();
         Course course = new Course();
         course.setID(iD);
-        course.setDepartment(Department.valueOf(rs.getString(2)));
-        course.setDivision(factory.createDivisionDAO().getDivision(rs.getInt(3)));
-        course.setName(rs.getString(4));
-        course.setCode(rs.getString(5));
-        course.setWeeklyLectureHours(rs.getInt(6));
-        course.setWeeklySectionHours(rs.getInt(7));
+        course.setDepartment(Department.valueOf(rs.getString("department")));
+        course.setDivision(factory.createDivisionDAO().getDivision(rs.getInt("division_id")));
+        course.setName(rs.getString("name"));
+        course.setCode(rs.getString("code"));
+        course.setWeeklyLectureHours(rs.getInt("lecture_hours"));
+        course.setWeeklySectionHours(rs.getInt("section_hours"));
 
 
         conn.close();
@@ -169,6 +171,10 @@ public class CourseDAOImpl implements CourseDAO {
     } catch (SQLException e) {
         e.printStackTrace();
     }
+        
+        catch(Exception e) {
+        	e.printStackTrace();
+        }
     return null;
     }
     @Override

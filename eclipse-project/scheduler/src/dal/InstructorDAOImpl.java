@@ -274,7 +274,7 @@ public class InstructorDAOImpl implements InstructorDAO {
 	@Override
 	public boolean delete(Instructor instructor) {
 		try {
-			String query = "DELETE FROM INSTRUCTOR WHERE EMAIL='\"+email+\"'";
+			String query = "DELETE FROM INSTRUCTOR WHERE EMAIL='"+instructor.getEmail()+"'";
 			Connection conn = DBUtils.getConnection();
 			PreparedStatement pst = conn.prepareStatement(query);
 			
@@ -303,15 +303,15 @@ public class InstructorDAOImpl implements InstructorDAO {
 			Statement stmt = con.createStatement();
 				ResultSet rs = stmt.executeQuery(query);)
 		{
+			rs.next();
 			inst = new Instructor();
 			inst.setFullName(rs.getString("full_name"));
-			/*
 			inst.setEmail(rs.getString("email"));
-			inst.setFullName(rs.getString("full_name"));
-			inst.setFullName(rs.getString("full_name"));
-			inst.setFullName(rs.getString("full_name"));
-			inst.setFullName(rs.getString("full_name"));
-			*/
+			inst.setPassword(rs.getString("password"));
+			inst.setDateOfEmployment(DateUtils.convert(rs.getString("date_of_employment")));
+			inst.setAcademicDegree(AcademicDegree.valueOf(rs.getString("academic_degree")));
+			inst.setDepartment(Department.valueOf(rs.getString("department")));
+			
 		}
 		
 		catch (SQLException e) {

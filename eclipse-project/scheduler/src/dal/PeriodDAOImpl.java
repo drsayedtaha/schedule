@@ -5,6 +5,7 @@ import java.util.List;
 
 import dto.Period;
 import utils.DBUtils;
+import utils.IDGenerator;
 
 import java.sql.*;
 
@@ -79,7 +80,8 @@ public class PeriodDAOImpl implements PeriodDAO {
 
 	@Override
 	public boolean insert(Period period) {
-		String query = "INSERT INTO PERIODS(DAY,PERIOD_NAME,START_TIME,END_TIME) VALUES(?,?,?,?)";
+		Integer periodId = IDGenerator.createPrimaryKey("periods");
+		String query = "INSERT INTO PERIODS(DAY,PERIOD_NAME,START_TIME,END_TIME,period_id) VALUES(?,?,?,?,?)";
 		try (
 		Connection conn = DBUtils.getConnection();
 		PreparedStatement pst = conn.prepareStatement(query);)
@@ -88,6 +90,7 @@ public class PeriodDAOImpl implements PeriodDAO {
 		pst.setString(2, period.getName());
 		pst.setString(3, period.getStartTime());
 		pst.setString(4, period.getEndTime());
+		pst.setInt(5, periodId);
 		pst.executeQuery();
 		return true;
 		
@@ -130,7 +133,27 @@ public class PeriodDAOImpl implements PeriodDAO {
 
 	@Override
 	public Period getPeriod(Integer id) {
-		return null;
+		Period period = null;
+		String query = "select * from periods where period_id = "+id;
+		try(Connection con = DBUtils.getConnection();
+				Statement stmt = con.createStatement();
+				ResultSet rs = stmt.executeQuery(query);)
+		{
+			period = new Period();
+			period.setDay(rs.getString("day"));
+			period.setDay(rs.getString("period_name"));
+			period.setDay(rs.getString("start_time"));
+			period.setDay(rs.getString("end_time"));
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return period;
 	}
 
 	@Override

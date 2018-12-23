@@ -19,7 +19,7 @@ public class DBUtils {
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:XE";
-			conn = DriverManager.getConnection(url, "dbusername", "oracle");
+			conn = DriverManager.getConnection(url, "dbusername", "1234");
 		}
 		catch (SQLException e) {
 			System.out.println("Exception at DB connection");
@@ -35,6 +35,10 @@ public class DBUtils {
 		}
 		
 		return conn;
+	}
+	
+	public static void main(String[] args) {
+		Connection conn = getConnection();
 	}
 	
 }
