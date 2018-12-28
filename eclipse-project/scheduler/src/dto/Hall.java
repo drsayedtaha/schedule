@@ -7,6 +7,7 @@ public class Hall  {
     private String name;
     private Integer capacity;
     private String code;
+    private String location;
     private Department department; //look-up table?
 
 
@@ -64,6 +65,14 @@ public class Hall  {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
    

@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import enums.*;
+import utils.DateUtils;
 
 public class Instructor  {
     
@@ -17,6 +18,7 @@ public class Instructor  {
     private AcademicDegree academicDegree; // db dependent
     private Department department; // academic degree?
     private  List<String> availableDays[];
+    private String dateString;
     
     
 
@@ -125,10 +127,20 @@ public class Instructor  {
 		this.department = department;
 	}
 
+
+	public String getDateString() {
+		return DateUtils.convert(dateOfEmployment);
+	}
+
+
+	public void setDateString(String dateString) {
+		this.dateString = dateString;
+	}
+
   
 
 	
-
+	
 
     
 

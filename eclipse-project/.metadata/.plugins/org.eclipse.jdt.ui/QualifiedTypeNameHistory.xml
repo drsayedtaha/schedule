@@ -6,4 +6,6 @@
     <fullyQualifiedTypeName name="dto.Preference"/>
     <fullyQualifiedTypeName name="dal.PreferenceDAO"/>
     <fullyQualifiedTypeName name="utils.IDGenerator"/>
+    <fullyQualifiedTypeName name="javax.faces.bean.SessionScoped"/>
+    <fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" name="goto_prefs" id="pf15450952176270" configfile="/scheduler/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Prefs.xhtml" x="263" y="195" id="pf15457046147450" outlinks="pf15457046147451" path="/Prefs.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Schedule.xhtml" x="471" y="238" id="pf15457046147462" inlinks="pf15457046147451" path="/Schedule.xhtml"/>
+  <links id="pf15457046147451" target="pf15457046147462" source="pf15457046147450"/>
+</pageflow:Pageflow>

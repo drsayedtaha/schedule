@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui">
+	
+	 <h:head>
+        <title>Users</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <link rel="shortcut icon" href="css/images/logo.png" />
+	</h:head>
+    
+	<h:body style = "background-color: #999999" >
+        
+        <div class="header-container">
+            <div class="header-item">
+                <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                    <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"/> </a> </div>
+            <div> </div>
+            <div class="navpar-container" style="padding-top: 3px">
+                  <div><a href="Home.html" class="head-href"> Log out </a></div>
+                  <div><a href="Students.html" class="head-href"> Students </a></div>
+	        </div>
+		</div> 
+        
+        		<h1 style = "text-align: center">Choose Available Courses</h1>
+		<h:form id="form">
+		
+	        <p:growl id="msgs" showDetail="true"/>
+	        
+		<div class="grid-container">
+			<div class="grid-item">Department</div>
+			<div class="grid-item">Grade</div>
+			<div class="grid-item">Course</div>
+			<div class="grid-item"></div>
+		
+			
+			<div>
+				<p:selectOneMenu id="department" value="#{userBean.department}" style="width:200px">
+		            <f:selectItem itemLabel="Electrical Engineering" itemValue="Electrical Engineering" />
+		            <f:selectItem itemLabel="Mechanical Engineering" itemValue="Mechanical Engineering" />
+		            <f:selectItem itemLabel="Civil Engineering" itemValue="Civil Engineering" />
+		            <f:selectItem itemLabel="Architecture Engineering" itemValue="Architecture Engineering" />
+		            <f:selectItem itemLabel="Mechatronics" itemValue="Mechatronics" />
+		            <f:selectItem itemLabel="Preporatory Year" itemValue="Preporatory Year" />
+	        	</p:selectOneMenu>					
+			</div>
+			
+			<div>
+				<p:selectOneMenu id="grade" value="#{userBean.grade}" style="width:200px">
+		            <f:selectItem itemLabel="1st Grade" itemValue="1st" />
+		            <f:selectItem itemLabel="2nd Grade" itemValue="2nd" />
+		            <f:selectItem itemLabel="3rd Grade" itemValue="3rd" />
+		            <f:selectItem itemLabel="4th Grade" itemValue="4th" />
+	        	</p:selectOneMenu>					
+			</div>
+			
+						<div>
+				<p:selectOneMenu id="course" value = "userBean.course" style="width:200px">
+		            <f:selectItems value="#{userBean.coursesName}" />
+	        	</p:selectOneMenu>					
+			</div>
+			
+		</div> 
+		
+		
+		
+		
+		<div class="grid-container2">
+			<div class="grid-item">
+				<p:fieldset id="availablePeriodsField" legend="Available Periods">
+			        <p:dataTable id="availablePeriods" var="iterator" value="#{userBean.periods}">
+			            <p:column style="width:20px" >
+			                <h:outputText id="dragIcon" styleClass="ui-icon pi pi-plus" />
+			                <p:draggable for="dragIcon" revert="true" helper="clone"/>
+			            </p:column>
+			 
+			 
+			 			<p:column headerText="NAME">
+			                <h:outputText value="#{iterator.name}" />
+			            </p:column>
+			 
+			            <p:column headerText="Day" sortBy="#{iterator.day}" filterBy="#{iterator.day}">
+			                <h:outputText value="#{iterator.day}" />
+			            </p:column>
+			 
+			            <p:column headerText="Time">
+			                <h:outputText value="#{iterator.interval}" />
+			            </p:column>
+			 		</p:dataTable>
+		    	</p:fieldset>
+			</div>
+			
+			<div class="grid-item">
+
+    	    <p:fieldset id="prefernces" legend="Prefernces" style="margin-top:20px">
+        <p:outputPanel id="dropArea">
+            <h:outputText value="!!!Drop preferences here!!!" rendered="#{empty userBean.preferences}" style="font-size:24px;" />
+            <p:dataTable id="preferencesTable" var="preference" value="#{userBean.preferences}" rendered="#{not empty userBean.preferences}">
+	            <p:column headerText="No">
+	                <h:outputText value="#{userBean.counter}" />
+	            </p:column>
+	 
+		 <p:column headerText="Name">
+	                <h:outputText value="#{userBean.period.name}" />
+	            </p:column>
+	 
+	            <p:column headerText="Day">
+	                <h:outputText value="#{userBean.period.day}" />
+	            </p:column>
+	 
+	            <p:column headerText="Time">
+	                <h:outputText value="#{userBean.period.interval}" />
+	            </p:column>
+	            
+	            <p:column headerText="Course">
+	                <h:outputText value="#{userBean.period.interval}" />
+	            </p:column>
+ 
+                <p:column style="width:32px">
+                    <p:commandButton update=":carForm:display" oncomplete="PF('carDialog').show()" icon="pi pi-search">
+                        <f:setPropertyActionListener value="#{car}" target="#{dndCarsView.selectedCar}" />
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+        </p:outputPanel>
+    </p:fieldset>
+    
+        <p:droppable for="prefernces" tolerance="touch" activeStyleClass="ui-state-highlight" datasource="availablePeriods" onDrop="handleDrop">
+        <p:ajax listener="#{dndCarsView.onCarDrop}" update="dropArea availablePeriods" />
+    		</p:droppable>
+
+
+
+
+			</div>
+		</div>
+		
+    	
+    	<center>     <p:commandButton value="Save" action="#{userBean.alo}" style="margin-right:20px; align:center" update=":form"/>
+ </center>
+    		
+    	
+    	
+    	        </h:form>
+    	
+           
+        
+    </h:body>
+
+</html>
+</f:view>

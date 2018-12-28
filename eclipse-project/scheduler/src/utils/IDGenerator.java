@@ -16,18 +16,22 @@ public class IDGenerator {
 	public static Integer createPrimaryKey(String tableName) {
 		
 		Integer primaryKey = 1;
-		StringBuilder str = new StringBuilder("select "+tableName);
-		str.deleteCharAt(str.length()-1);
-		str.append("_id FROM "+tableName);
+		
+		StringBuilder columnName = new StringBuilder(tableName);
+		columnName.deleteCharAt(tableName.length()-1);
+		columnName.append("_id");
+		
+		StringBuilder query = new StringBuilder("select "+columnName+" FROM "+tableName);
+		
 		
 		try (Connection con = DBUtils.getConnection();
-				PreparedStatement pst = con.prepareStatement(str.toString());
+				PreparedStatement pst = con.prepareStatement(query.toString());
 				ResultSet rst = pst.executeQuery();)
 		{
 			
 			while(rst.next())
 			{
-				primaryKey = rst.getInt(1)+1;
+				primaryKey = rst.getInt(columnName.toString());
 			}
 			
 			return primaryKey;

@@ -1,0 +1,39 @@
+package bal.algorithm;
+import dto.Instructor;
+
+import java.util.*;
+/**
+ * 
+ * @author Ahmed Fayez
+ * This class provides methods that sort instructors by date and position
+ */
+public class InstructorProcess {
+
+	public void sortByDate(List<Instructor> instructors){
+		
+		
+		Comparator<Instructor> order =  new Comparator<Instructor>() {
+			
+			public int compare(Instructor inst1, Instructor inst2) {
+				return inst2.getDateOfEmployment().compareTo(inst1.getDateOfEmployment());
+			}
+		};
+		
+		List<Instructor> sortedInst = new ArrayList<>();	
+		Collections.sort(sortedInst , order);
+	 
+	 
+	}
+	
+	public void sortByDegree(List<Instructor> instructors){
+		
+		// TO-DO
+	
+	}
+	
+	public void sortBySeniority(List<Instructor> instructors) {
+		// TO-DO
+	}
+	
+	
+}

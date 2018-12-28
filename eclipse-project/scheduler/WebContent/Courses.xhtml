@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui">
+        <h:head>
+            <title>Courses</title>
+            <link rel="stylesheet" href="css/style.css"></link>
+        </h:head>
+        <h:body style="background-color: #999999">
+            <div class="header-container">
+                <div class="header-item">
+                    <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                        <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"/></a>
+                </div>
+                <div></div>
+                <div class="navpar-container" style="padding-top: 3px">
+                    <div>
+                        <a href="Admin.jsf" class="head-href">Home</a>
+                    </div>
+                    <div>
+                        <a href="Home.jsf" class="head-href">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <h1 style="text-align: center;">Courses DataBase</h1>
+            <div>
+                <form action="AddCourses.jsf">
+                    <button type="submit" id="ADD_COURSE" class="add">Add Course</button>
+                </form>
+            </div>
+            <h:form id="form">
+                <p:growl id="msgs" showDetail="true"/>
+                <p:dataTable editable="true" style="margin-bottom:20px" var="course" rowKey="#{course.id}"
+                             value="#{Courses.courses}" widgetVar="coursesTable"
+                             emptyMessage="No cars found with given criteria"
+                             filteredValue="#{Courses.filteredCourses}">
+                    <f:facet name="header">
+                        <p:outputPanel>
+                            <h:outputText value="Search all fields:"/>
+                            <p:inputText id="globalFilter" onkeyup="PF('coursesTable').filter()" style="width:150px"
+                                         placeholder="Enter keyword"/>
+                        </p:outputPanel>
+                    </f:facet>
+                    <p:ajax event="rowEdit" listener="#{Courses.onRowEdit}" update=":form:msgs"/>
+                    <p:ajax event="rowEditCancel" listener="#{Courses.onRowCancel}" update=":form:msgs"/>
+                    <p:column headerText="ID" sortBy="#{course.iD}" filterBy="#{course.iD}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{course.iD}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText id="modelInput" value="#{course.iD}" style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Name" filterBy="#{course.name}" sortBy="#{course.name}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{course.name}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{course.name}" style="width:100%" label="Name"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Code" filterBy="#{course.code}" sortBy="#{course.code}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{course.code}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{course.code}" style="width:100%" label="Code"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Grade" filterBy="#{course.grade}" sortBy="#{course.grade}">
+                        <f:facet name="filter">
+                            <p:selectOneMenu onchange="PF('coursesTable').filter()">
+                                <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
+                                <f:selectItems value="#{Courses.grades}"/>
+                            </p:selectOneMenu>
+                        </f:facet>
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{course.grade}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:selectOneMenu value="#{course.grade}" style="width:100%">
+                                    <f:selectItems value="#{Courses.grades}" var="man" itemLabel="#{man}"
+                                                   itemValue="#{man}"/>
+                                </h:selectOneMenu>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Department" filterBy="#{course.department}" sortBy="#{course.department}">
+                        <f:facet name="filter">
+                            <p:selectOneMenu onchange="PF('coursesTable').filter()">
+                                <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
+                                <f:selectItems value="#{Courses.departments}"/>
+                            </p:selectOneMenu>
+                        </f:facet>
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{course.department}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <h:selectOneMenu value="#{course.department}" style="width:100%">
+                                    <f:selectItems value="#{Courses.departments}" var="man" itemLabel="#{man}"
+                                                   itemValue="#{man}"/>
+                                </h:selectOneMenu>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Weekly hours lec." sortBy="#{course.weeklyLectureHours}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{course.weeklyLectureHours}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{course.weeklyLectureHours}" style="width:100%" label="Code"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Weekly extra hours" sortBy="#{course.weeklySectionHours}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{course.weeklySectionHours}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{course.weeklySectionHours}" style="width:100%" label="Code"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Instructors">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{course.instructorsnumb}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{course.instructorsnumb}" style="width:100%" label="Code"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="Term" filterBy="#{course.term}" sortBy="#{course.term}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{course.term}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{course.term}" style="width:100%" label="term"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column style="width:35px">
+                        <p:rowEditor/>
+                    </p:column>
+                    <p:column>
+                        <p:commandLink action="#{Courses.deleteAction(course)}" style="margin-right:20px;"
+                                       update=":form">
+                            <h:outputText value="Delete"/>
+                        </p:commandLink>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </h:body>
+    </html>
+</f:view>

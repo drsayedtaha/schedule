@@ -1,0 +1,45 @@
+package bal.algorithm.unit.test;
+import dal.DAOFactory;
+import java.util.List;
+
+import bal.algorithm.InstructorProcess;
+import dto.Instructor;
+import dto.Preference;
+import utils.DateUtils;
+
+public class InstUnitTest {
+	// Test inst process
+	
+	public static void main(String[] args) {
+		try {
+			
+			DAOFactory factory = new DAOFactory();
+			List<Instructor> instList = factory.createInstructorDAO().getAllInstructors();
+			List<Instructor> sortedInstsByDate  =  new InstructorProcess().sortByDate(instList);
+			List<Instructor> sortedInstsByPosition  =  new InstructorProcess().sortByDegree(instList);
+			
+		// For sorting date test	
+			
+		for(int i=0;i<sortedInstsByDate.size();i++) {
+			System.out.println("Name: " + sortedInstsByDate.get(i).getFullName()
+					+" || Date: " + DateUtils.convert(sortedInstsByDate.get(i).getDateOfEmployment()));
+		
+		}
+		
+		// for sorting position order
+		/*
+		for(int i=0,n=sortedInstsByPosition.size() ;i<n; i++) {
+			System.out.println("Name: " + sortedInstsByPosition.get(i).getFullName() + ""
+					+ " Position: " + sortedInstsByPosition.get(i).getAcademicDegree());
+		}
+		
+		*/
+		}
+		catch (Exception e) {
+			System.out.println("exception at main test");
+			e.printStackTrace();
+		}
+		
+	}
+
+}

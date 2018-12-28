@@ -1,0 +1,9 @@
+package bal.algorithm;
+
+public class ScheduleProcess {
+
+	// get  a sorted pref list with courses
+	// generate new list , assign course to one instructor
+	
+	
+}

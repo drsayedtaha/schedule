@@ -1,0 +1,21 @@
+package bal.algorithm;
+import dal.DAOFactory;
+import java.util.List;
+import dto.Preference;
+
+
+/**
+ * 
+ * @author Ahmed Fayez
+ * Created on 24/12/2018
+ * This class provides some utils methods for processing preferences sorting
+ */
+public class PrefProcess {
+
+	//Sort by rank method
+	// create sorted prefs list
+	
+	
+	
+	
+}

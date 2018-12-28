@@ -81,7 +81,7 @@ public class InstructorDAOImpl implements InstructorDAO {
 			instructor = new Instructor();
 			instructor.setEmail(result.getString("EMAIL"));
 			instructor.setFullName(result.getString("FULL_NAME"));
-			instructor.setDateOfEmployment(result.getDate("DATE_OF_EMPLOYMENT"));
+			instructor.setDateOfEmployment(DateUtils.convert(result.getString("date_of_employment")));
 			instructor.setAcademicDegree(AcademicDegree.valueOf(result.getString("ACADEMIC_DEGREE")));
 			instructor.setDepartment(Department.valueOf(result.getString("DEPARTMENT")));
 			instructors.add(instructor);
@@ -316,6 +316,10 @@ public class InstructorDAOImpl implements InstructorDAO {
 		
 		catch (SQLException e) {
 			e.printStackTrace();
+		}
+		
+		catch(NullPointerException e)  {
+			inst.setDateOfEmployment(DateUtils.convert(""));
 		}
 		
 		catch(Exception e) {

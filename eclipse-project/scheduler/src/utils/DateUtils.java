@@ -13,12 +13,12 @@ public class DateUtils {
 		Date result = null;
 		try {
 			
-		SimpleDateFormat sdt = new SimpleDateFormat("dd-MM-YYYY");
-	    result = sdt.parse(dateString);
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-YYYY");
+	    result = formatter.parse(dateString);
 	    
 		}
 		catch(Exception e) {
-			System.out.println("Date converter exception");
+			System.out.println("Exception at date converter");
 			e.printStackTrace();
 		}
 		return result;
@@ -31,9 +31,10 @@ public class DateUtils {
 	 * @return string
 	 */
 	public static String convert(Date date) {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-YYYY"); 
 		if (date==null)
 			return "";
-		return date.toString();
+		return formatter.format(date);
 	}
 	
 }

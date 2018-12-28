@@ -28,7 +28,7 @@ public class PeriodDAOImpl implements PeriodDAO {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);)
 		{
-		while(rs.next()) 
+		while(rs.next()) {
 			if(result == null)
 				result = new ArrayList<Period>();
 			period = new Period();
@@ -38,7 +38,7 @@ public class PeriodDAOImpl implements PeriodDAO {
 			period.setEndTime(rs.getString(4));
 			period.setInterval(period.getStartTime(),period.getEndTime()); // The form 2:00 - 4:00
 			result.add(period);
-			
+		}
 		
 		}
 		catch (SQLException e) {
@@ -138,8 +138,9 @@ public class PeriodDAOImpl implements PeriodDAO {
 		try(Connection con = DBUtils.getConnection();
 				Statement stmt = con.createStatement();
 				ResultSet rs = stmt.executeQuery(query);)
-		{
+		{	
 			period = new Period();
+			rs.next();
 			period.setDay(rs.getString("day"));
 			period.setDay(rs.getString("period_name"));
 			period.setDay(rs.getString("start_time"));

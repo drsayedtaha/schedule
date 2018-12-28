@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+    version="2.3">
+	<managed-bean>
+		<managed-bean-name>prefBean</managed-bean-name>
+		<managed-bean-class>view.PrefBean</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>scheduleBean</managed-bean-name>
+		<managed-bean-class>view.ScheduleBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>hall</managed-bean-name>
+		<managed-bean-class>view.hallBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	
+	
+	<navigation-rule>
+		<display-name>Prefs.xhtml</display-name>
+		<from-view-id>/Prefs.xhtml</from-view-id>
+		<navigation-case>
+			<to-view-id>/Schedule.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>

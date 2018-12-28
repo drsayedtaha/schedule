@@ -1,0 +1,31 @@
+package bal;
+import dto.Instructor;
+
+import java.util.*;
+
+public class InstructorProcess {
+
+	public void sortBySeniority(List<Instructor> instructors){
+		
+		
+		Comparator<Instructor> order =  new Comparator<Instructor>() {
+			
+			public int compare(Instructor inst1, Instructor inst2) {
+				return inst2.getDateOfEmployment().compareTo(inst1.getDateOfEmployment());
+			}
+		};
+		
+		List<Instructor> sortedInst = new ArrayList<>();	
+		Collections.sort(sortedInst , order);
+	 
+	 
+	}
+	
+	public void sortByDegree(List<Instructor> instructors){
+		
+		// TO-DO
+	
+	}
+	
+	
+}

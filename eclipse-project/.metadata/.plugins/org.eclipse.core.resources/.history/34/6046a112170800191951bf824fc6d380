@@ -1,0 +1,34 @@
+package view;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+
+import dal.DAOFactory;
+import dto.Preference;
+public class ScheduleBean {
+	List<Preference> sortedPrefList;
+
+	@PostConstruct
+	public void init() {
+		try {
+			
+		DAOFactory dbfactory = new DAOFactory();
+		sortedPrefList = dbfactory.createPreferenceDAO().getAllPreferences();
+		
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public List<Preference> getSortedPrefList() {
+		return sortedPrefList;
+	}
+
+	public void setSortedPrefList(List<Preference> sortedPrefList) {
+		this.sortedPrefList = sortedPrefList;
+	}
+	
+	
+}

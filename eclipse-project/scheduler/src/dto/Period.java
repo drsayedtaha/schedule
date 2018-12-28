@@ -10,9 +10,20 @@ public class Period  {
     private String endTime;
     private String interval; // start time - end time
     private String day; //look-up table?
+    private String time;
 
 
-    public void setHall(Hall hall) {
+    
+    
+    public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = getDay() + "|" + getInterval();
+	}
+
+	public void setHall(Hall hall) {
         this.hall = hall;
     }
 

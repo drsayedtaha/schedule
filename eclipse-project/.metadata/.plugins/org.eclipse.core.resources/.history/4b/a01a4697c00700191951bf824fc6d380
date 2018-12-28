@@ -1,0 +1,37 @@
+package bal;
+import dal.DAOFactory;
+import java.util.List;
+import dto.Preference;
+
+
+/**
+ * 
+ * @author Ahmed Fayez
+ * Created on 24/12/2018
+ * This class provides some utils methods for processing preferences 
+ */
+public class PrefProcess {
+	private DAOFactory factory = new DAOFactory();
+	
+	public List<Preference> sortByDegree() {
+		List<Preference> sortedPrefs = null;
+		List<Preference> prefs = factory.createPreferenceDAO().getAllPreferences();
+	
+		
+		return sortedPrefs;
+	}
+	
+	public List<Preference> sortBySeniority(){
+		List<Preference> sortedPrefs = null;
+		
+		
+		
+		
+		
+		return sortedPrefs;
+	}
+	
+	
+	
+	
+}

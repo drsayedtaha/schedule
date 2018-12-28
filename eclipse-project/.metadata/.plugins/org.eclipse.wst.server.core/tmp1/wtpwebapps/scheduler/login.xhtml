@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:p="http://primefaces.org/ui">
+        <h:head>
+           <title>Login</title>
+		<link rel="stylesheet" href="style.css"/>
+        <link rel="shortcut icon" href="images/logo.png" />
+        </h:head>
+        
+        
+        <h:body>
+        <body style = "background-color: #999999" ></body>
+        
+        
+            <h:form>
+            
+       <h:outputLabel value="UserName" />
+       <p:inputText value="#{loginBean.email}"/>
+       <h:panelGrid columns="2" id="matchGrid" cellpadding="5"/>                   
+        <h:outputLabel for="pwd1" value="Password " />
+        <p:password id="pwd1" value="#{loginBean.password5}" match="pwd2" label="Password 1" required="true" />
+        
+        
+         <p:growl id="growl" life="2000" />
+         <br></br> <br></br>
+     
+    <p:commandButton value="LOGIN" id="ajax" update="growl" action="#{LoginBean.validateusernamepassword}" style="margin-right:40px;" styleClass="ui-priority-primary" />
+   
+            </h:form>
+        </h:body>
+    </html>
+</f:view>

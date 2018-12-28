@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+  <title><ui:insert name="title">Add users</ui:insert></title>
+</h:head>
+
+
+	  
+       <h:head>
+    <title>
+      Add User
+    </title>
+    <link rel="stylesheet" href= "css/AddUser.css"/>
+  </h:head>
+  <h:body style="background-color: #999999">
+    <div class="header-container">
+      <div class="header-item">
+        <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+        <img style="height: 50px" src="css/images/logo.png"
+        alt="Faculty of Engineering Home Page" /> </a>
+      </div>
+      <div>
+      </div>
+      <div class="navpar-container" style="padding-top: 3px">
+        <div>
+          <a href="Home.html" class="head-href"> Log out </a>
+        </div>
+        <div>
+          <a href="Admin.html" class="head-href"> Home </a>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <h:form>
+      <h1 class="header-text">
+        Please, Fill the following to create a new user.
+      </h1>
+      <div class="container">
+      <p:panelGrid columns="2">
+      	<p:outputLabel value="Fullname"/>
+        <p:inputText id="fullname" value="#{addUserBean.instructor.fullName}"/><br />
+      
+         <p:outputLabel  value="Email"/>
+        <p:inputText id="email" value="#{addUserBean.instructor.email}"/><br />
+         <p:outputLabel  value="Password"/>
+        <p:inputText  id="password" type="password" value="#{addUserBean.instructor.password}" /><br />
+       <p:outputLabel  value="AcademicField"/>
+        <p:inputText id="academicField" value="#{addUserBean.instructor.academicField}" /><br />
+        
+        <p:outputLabel  value="Date Of Employment"/><br />
+        <p:calendar id="dateOfEmployment" value="#{addUserBean.instructor.dateOfEmployment}"/><br />
+      
+      
+        <p:outputLabel  value="Departments"/>
+        
+    <p:selectOneMenu required="true" value="#{addUserBean.instructor.department}">
+    	<f:selectItem itemLabel="-- Select --" noSelectionOption="true"></f:selectItem>
+    	<f:selectItems value="#{addUserBean.depts}"></f:selectItems>
+    </p:selectOneMenu> <br />
+    
+            <p:outputLabel  value="Academic Degree"/>
+            <p:selectOneMenu required="true" value="#{addUserBean.instructor.academicDegree}">
+    	<f:selectItem itemLabel="-- Select --" noSelectionOption="true"></f:selectItem>
+    	<f:selectItems value="#{addUserBean.academic}"></f:selectItems>
+    </p:selectOneMenu> <br />
+        
+                <p:outputLabel  value="Role"/>
+        
+          <p:selectOneMenu required="true" value="#{addUserBean.instructor.role}">
+    	<f:selectItem itemLabel="-- Select --" noSelectionOption="true"></f:selectItem>
+    	<f:selectItems value="#{addUserBean.role}"></f:selectItems>
+    </p:selectOneMenu> <br />
+        
+     <p:commandButton id="submit"  value="add User"  actionlistner="#{addUserBean.buttonAction}" ></p:commandButton>
+      	
+      </p:panelGrid>        
+         
+                
+      </div>
+    </h:form>
+  </h:body>
+	
+</html>
