@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Add Course</title>
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link rel="shortcut icon" href="css/images/logo.png" />
+</h:head>
+
+
+<h:body style="background-color: #999999">
+
+	<div class="header-container">
+		<div class="header-item">
+			<a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+				<img style="height: 50px" src="css/images/logo.png"
+				alt="Faculty of Engineering Home Page" />
+			</a>
+		</div>
+		<div></div>
+		<div class="navpar-container" style="padding-top: 3px"></div>
+	</div>
+
+	<h1 class="header-text">Please, Fill the following to add Course.</h1>
+	<style type="text/css">
+.value {
+	font-weight: bold;
+}
+</style>
+<h:form >
+	
+	<h3 class="header-text">Name.</h3>
+	<p:inputText style="height: 35px;width:27%" id="Name"
+		value="#{coursesBean.course.name}" />
+		
+		
+		
+		
+		<h3 class="header-text">Code.</h3>
+	<p:inputText style="height: 35px;width:27%" id="Code"
+		value="#{coursesBean.course.code}" />
+		
+
+	<h3 class="header-text">weeklyLectureHours.</h3>
+	<p:inputText style="height: 35px;width:27%" id="weeklyLectureHours"
+		value="#{coursesBean.course.weeklyLectureHours}" />
+		
+		<h3 class="header-text">weeklySectionHours.</h3>
+	<p:inputText style="height: 35px;width:27%" id="weeklySectionHours"
+		value="#{coursesBean.course.weeklySectionHours}" />
+
+	<p:messages>
+		<p:autoUpdate />
+	</p:messages>
+
+<h3 class="header-text">grade.</h3>
+	<h:selectOneMenu  style="height: 40px;width:28%" id="grade"
+		value="#{coursesBean.course.grade}">
+		<f:selectItem itemLabel="Select One" itemValue="" />
+		<f:selectItems value="#{selectOneMenuView.grades}" />
+	</h:selectOneMenu>
+
+<h3 class="header-text">Term.</h3>
+	<h:selectOneMenu  style="height: 35px;width:28%" id="Term"
+		value="#{coursesBean.course.term}">
+		<f:selectItem itemLabel="Select One" itemValue="" />
+		<f:selectItems value="#{selectOneMenuView.terms}" />
+	</h:selectOneMenu>
+
+
+	<h3 class="header-text">Department.</h3>
+	<h:selectOneMenu  style="height: 35px;width:28%" id="city"
+		value="#{coursesBean.course.department}">
+		<f:selectItem itemLabel="Select One" itemValue="" />
+		<f:selectItems value="#{selectOneMenuView.cities}" />
+	</h:selectOneMenu>
+
+
+
+	<p:separator />
+<center>
+	<p:commandButton value="Submit"
+		class="btn btn-primary p-3 px-xl-5 py-xl-3"
+		actionListener="#{coursesBean.buttonAction}">
+	</p:commandButton>
+	</center>
+</h:form>
+	
+
+</h:body>
+</html>

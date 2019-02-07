@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	
+<h:head>
+	<title>Add User</title>
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link rel="shortcut icon" href="css/images/logo.png" />
+</h:head>
+
+
+<h:body style="background-color: #999999">
+
+	<div class="header-container">
+		<div class="header-item">
+			<a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+				<img style="height: 50px" src="css/images/logo.png"
+				alt="Faculty of Engineering Home Page" />
+			</a>
+		</div>
+		<div></div>
+		<div class="navpar-container" style="padding-top: 3px"></div>
+	</div>
+	<hr></hr>
+	<script>
+	function add_user(x)
+	{
+		if(x==0)
+			{
+			document.getElementById('add_user').style.display='block';
+			document.getElementById('add_admin').style.display='none';
+			}
+		else
+			{
+			document.getElementById('add_user').style.display='none';
+			document.getElementById('add_admin').style.display='block';
+			}
+	}
+	
+	</script>
+	
+	
+
+<center>
+<input type="radio" name="rad1" onclick="add_user(0)" />add Instructor
+<input type="radio" name="rad1" onclick="add_user(1)" />add Admin
+</center>
+  
+   
+    
+	<style  type="text/css">
+.value {
+	font-weight: bold;
+}
+</style>
+<h:form>
+<div id="add_user">
+<h1 class="header-text">Please, Fill the following to add Instructor .</h1>
+	<h2 class="header-text">User_name.</h2>
+	<p:inputText style="height: 35px;width:27%" id="name1"
+		value="#{userAdditionBean.instructor.fullName}" />
+		
+		<h2 class="header-text"> E-mail Address.</h2>
+	<p:inputText style="height: 35px;width:27%"  id="mail1"
+		value="#{userAdditionBean.instructor.email}" />
+		
+		<h2 class="header-text"> password.</h2>
+	<p:inputText  type="password" style="height: 35px;width:27%" id="password1" 
+	value="#{userAdditionBean.instructor.password}"/>
+
+		
+		  <h2 class="header-text">  Academic Position.</h2>
+	<h:selectOneMenu style="height: 35px;width:28%" id="city"
+		value="#{userAdditionBean.instructor.academicDegree}">
+		<f:selectItem itemLabel="Select One" itemValue="" />
+		<f:selectItems value="#{selectOneMenuView.positions}" />
+	</h:selectOneMenu>
+	
+	<h3 class="header-text">Department.</h3>
+	<h:selectOneMenu style="height: 35px;width:28%" id="Department"
+		value="#{userAdditionBean.instructor.department}">
+		<f:selectItem itemLabel="Select One" itemValue="" />
+		<f:selectItems value="#{selectOneMenuView.cities}" />
+	</h:selectOneMenu>
+		
+		
+		
+
+	<h2 class="header-text">  Graduation Date    :   <p:calendar   id="popup" value="#{userAdditionBean.instructor.dateOfEmployment}" locale="pt" pattern="dd/MM/yyyy" /></h2>
+	
+        
+        <p:separator />
+<center>
+	<p:commandButton value="Submit"
+		class="btn btn-primary p-3 px-xl-5 py-xl-3"
+		actionListener="#{userAdditionBean.buttonAction}">
+	</p:commandButton>
+	</center>
+
+         </div>
+         
+         <div id="add_admin">
+         <h1 class="header-text">Please, Fill the following to add Admin .</h1>
+         <h2 class="header-text">User_name.</h2>
+	<p:inputText style="height: 35px;width:27%" id="name2"
+		value="#{userAdditionBean.admin.fullName}" />
+		
+		<h2 class="header-text"> E-mail Address.</h2>
+	<p:inputText style="height: 35px;width:27%"  id="mail2"
+		value="#{userAdditionBean.admin.email}" />
+		
+		<h2 class="header-text"> password.</h2>
+	<p:inputText  type="password" style="height: 35px;width:27%" id="password2"
+	value="#{userAdditionBean.admin.password}"/>
+	
+	<p:separator />
+<center>
+	<p:commandButton value="Submit"
+		class="btn btn-primary p-3 px-xl-5 py-xl-3"
+		actionListener="#{userAdditionBean.buttonAction2}">
+	</p:commandButton>
+	</center>
+         </div>
+ 
+    
+ 
+    
+    </h:form>
+</h:body>
+</html>

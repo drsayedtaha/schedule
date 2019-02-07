@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+
+
+
+
+  <head>
+    <title>
+      Add Halls
+    </title>
+    <link rel="stylesheet" href="css/AddHalls.css" />
+  </head>
+  <body style="background-color: #999999">
+    <div class="header-container">
+      <div class="header-item">
+        <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+        <img style="height: 50px" src="css/images/logo.png"
+        alt="Faculty of Engineering Home Page" /> </a>
+      </div>
+      <div>
+      </div>
+      <div class="navpar-container" style="padding-top: 3px">
+        <div>
+          <a href="Home.html" class="head-href"> Log out </a>
+        </div>
+        <div>
+          <a href="Admin.html" class="head-href"> Home </a>
+        </div>
+      </div>
+    </div>
+    <form action="">
+      <h1 class="header-text">
+        Please, Fill the following to add lecture halls and section rooms.
+      </h1>
+      <div class="container">
+        <!--  Genre combox -->
+        <label for="category"><b>category</b></label><br />
+        <select class="genre" value="#{addHallsBean.hall.category}">>
+        <option value="mathematics">
+          Lecture Hall
+        </option>
+        <option value="civil">
+          Section Room
+        </option></select>
+        <br />
+        
+        <!--  Genre combox -->
+        <label for="departement"><b>department</b></label><br />
+        <select class="genre">
+        <option >
+          Civil
+        </option>
+        <option >
+          Electrical
+        </option>
+        <option >
+          MathematicsAndPhysics
+        </option>
+        <option >
+          Architectural
+        </option>
+        <option >
+          Mechanical
+        </option>
+        <option >
+          Industrial
+        </option>
+        </select>
+        
+        <br />
+        
+         <!--  location combox --> <label for="location"><b>Location</b></label><br />
+        <input type="text" id="location" class="location"  value="#{addHallsBean.hall.location}" /><br />
+        
+        <!--  location combox --> <label for="code"><b>code</b></label><br />
+        <input type="text" id="code" class="code" /><br />
+        
+        
+         <!--  name text --> <label for="name"><b>Name</b></label><br />
+        <input type="text" id="name" class="hall-name" /><br />
+
+       <label for="capacity"><b>capacity </b></label><br />
+        <input type="text" id="capacity" class="capacity" /><br /> <br /><br />
+        
+        <button class="registerbtn"><b><font size="5">Save</font></b></button>
+      </div>
+    </form>
+  </body>
+</html>
+
