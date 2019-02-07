@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui">
+        <h:head>
+            <title>Prefrences</title>
+            <link rel="stylesheet" href="css/style.css"></link>
+        </h:head>
+        <h:body style="background-color: #999999">
+            <div class="header-container">
+                <div class="header-item">
+                    <a href="http://www.fayoum.edu.eg/Engineering/home.aspx?pagid=2">
+                        <img style="height: 50px" src="css/images/logo.png" alt="Faculty of Engineering Home Page"/></a>
+                </div>
+                <div></div>
+                <div class="navpar-container" style="padding-top: 3px">
+                    <div>
+                        <a href="Admin.jsf" class="head-href">Home</a>
+                    </div>
+                    <div>
+                        <a href="Home.jsf" class="head-href">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <h1 style="text-align: center;">Prefrences</h1>
+
+            <h:form id="form">
+                <p:growl id="msgs" showDetail="true"/>
+                <p:dataTable editable="false" style="margin-bottom:20px" var="preference" 
+                             value="#{Prefs.prefs}" widgetVar="prefsTable"
+                             emptyMessage="No data found with given criteria"
+                             filteredValue="#{Prefs.filteredPrefs}">
+                    <f:facet name="header">
+                        <p:outputPanel>
+                            <h:outputText value="Search all fields:"/>
+                            <p:inputText id="globalFilter" onkeyup="PF('prefsTable').filter()" style="width:150px"
+                                         placeholder="Enter keyword"/>
+                        </p:outputPanel>
+                    </f:facet>
+                
+                  
+                    <p:column headerText="Instructor" filterBy="#{preference.instructor.fullName}" sortBy="#{preference.instructor.fullName}">
+
+                                <h:outputText value="#{preference.instructor.fullName}"/>
+
+                    </p:column>
+                      <p:column headerText="Course" filterBy="#{preference.course.name}" sortBy="#{preference.course.name}">
+
+                                <h:outputText value="#{preference.course.name}"/>
+
+                    </p:column>
+                
+                  <p:column headerText="Period Name" filterBy="#{preference.period.name}" sortBy="#{preference.period.name}">
+                         <h:outputText value="#{preference.period.name}"/> 
+                         </p:column>
+                <p:column headerText="Period Day" filterBy="#{preference.period.day}" sortBy="#{preference.period.day}">
+                         <h:outputText value="#{preference.period.day}"/> 
+                         </p:column>
+                         
+                     <p:column headerText="Rank" filterBy="#{preference.rank}" sortBy="#{preference.rank}">
+
+                                <h:outputText value="#{preference.rank}"/>
+
+                    </p:column>
+                    
+                </p:dataTable>
+            </h:form>
+        </h:body>
+    </html>
+</f:view>
